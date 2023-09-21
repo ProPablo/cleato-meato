@@ -1,9 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://jjhhxsb56yoi"]
+[gd_scene load_steps=16 format=3 uid="uid://jjhhxsb56yoi"]
 
 [ext_resource type="Script" path="res://Scripts/SkyboxColour.cs" id="1_cwa74"]
 [ext_resource type="Script" path="res://Scripts/IntroAnimation.cs" id="1_dr3ni"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utv4x"]
+albedo_color = Color(0.756863, 0.176471, 0.176471, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_56gjx"]
+material = SubResource("StandardMaterial3D_utv4x")
 radius = 25.0
 height = 50.0
 
@@ -18,11 +22,17 @@ material = SubResource("StandardMaterial3D_y75gg")
 size = Vector2(1000, 500)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jr66d"]
-size = Vector3(20, 20, 20)
+size = Vector3(2, 50, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0lo6t"]
+size = Vector3(40, 20, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1prp6"]
+size = Vector3(82.715, 51.515, 50)
 
 [sub_resource type="Animation" id="Animation_bnddk"]
 resource_name = "Approach"
-length = 10.0
+length = 10.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,7 +41,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.329877, 1),
 "update": 0,
 "values": [Vector3(-132.1, 77.028, 283.865), Vector3(-10, 39.359, 102.322)]
 }
@@ -43,7 +53,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.329877, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.153589, 0, 0)]
 }
@@ -149,13 +159,34 @@ transform = Transform3D(0.499315, -0.866025, 0.026168, 0.864839, 0.5, 0.0453243,
 mesh = SubResource("BoxMesh_uq4eo")
 
 [node name="ClosePlanet" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 496.328)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5786, -8.54709, 517.109)
 mesh = SubResource("PlaneMesh_mcmq4")
 skeleton = NodePath("../FarPlanet")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ClosePlanet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9391, 9.81927, -190.717)
+[node name="Signpost" type="MeshInstance3D" parent="ClosePlanet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9391, 24.3916, -190.717)
 mesh = SubResource("BoxMesh_jr66d")
+
+[node name="SignSign" type="MeshInstance3D" parent="ClosePlanet/Signpost"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301849, 26.0716, -0.73053)
+mesh = SubResource("BoxMesh_0lo6t")
+
+[node name="Label3D" type="Label3D" parent="ClosePlanet/Signpost/SignSign"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.4886, 5.64481, -1.23645)
+pixel_size = 0.125
+text = "Cleato Meato's"
+horizontal_alignment = 2
+
+[node name="Label3D2" type="Label3D" parent="ClosePlanet/Signpost/SignSign"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.48858, -0.825851, -1.23645)
+pixel_size = 0.125
+text = "Flesh Emporium"
+font_size = 22
+horizontal_alignment = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClosePlanet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2097, 14.5646, -119.629)
+mesh = SubResource("BoxMesh_1prp6")
 
 [node name="SpaceCamPivot" type="Node3D" parent="."]
 transform = Transform3D(0.812907, -0.49379, -0.308794, 0.540965, 0.836607, 0.0862906, 0.21573, -0.237193, 0.947206, -13.0002, 7.62243, 47.6308)

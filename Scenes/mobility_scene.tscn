@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq4q4j4k7ublm"]
+
+[ext_resource type="Texture2D" uid="uid://da8anjw0bdxa7" path="res://Scenes/Prefab_grey.png" id="1_ikjt4"]
+[ext_resource type="PackedScene" uid="uid://n5jdmaatiswb" path="res://Player/Player.tscn" id="2_ucxug"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebgjf"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e152k"]
+albedo_texture = ExtResource("1_ikjt4")
+uv1_scale = Vector3(200, 200, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s2d3c"]
+size = Vector3(200, 1, 200)
+
+[node name="MobilityScene" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_ebgjf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+material_override = SubResource("StandardMaterial3D_e152k")
+mesh = SubResource("BoxMesh_s2d3c")
+
+[node name="Player" parent="." instance=ExtResource("2_ucxug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.22957, 0)

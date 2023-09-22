@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://n5jdmaatiswb"]
+[gd_scene load_steps=5 format=3 uid="uid://n5jdmaatiswb"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_5na24"]
 [ext_resource type="Script" path="res://Player/PlayerMaster.cs" id="2_xu3e0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hvs30"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jx4g"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5na24")
 
 [node name="PlayerMaster" type="Node" parent="."]
 script = ExtResource("2_xu3e0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_hvs30")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7jx4g")
+
+[node name="Camera3D" type="Camera3D" parent="."]

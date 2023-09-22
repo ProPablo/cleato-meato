@@ -8,7 +8,8 @@ public partial class PlayerMaster : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_player = GetNode<Player>("../Player");
+		//This is wrong lole
+		// _player = GetNode<Player>("../Player");
 		GameManager._.PlayerMaster = this;
 	}
 

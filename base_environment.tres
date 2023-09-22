@@ -1,0 +1,15 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://b1w1lpmyb11yk"]
+
+[ext_resource type="Texture2D" uid="uid://cdjq8rfo3x1qb" path="res://AllSkyFree_Skyboxes/Cold Sunset Equirect.png" id="1_gwjnv"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjtpx"]
+panorama = ExtResource("1_gwjnv")
+
+[sub_resource type="Sky" id="Sky_5l8ww"]
+sky_material = SubResource("PanoramaSkyMaterial_cjtpx")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_5l8ww")
+ambient_light_source = 2
+ambient_light_color = Color(0.992157, 0.65098, 0.756863, 1)

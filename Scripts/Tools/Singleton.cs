@@ -1,13 +1,16 @@
 
 using Godot;
 using System;
-public partial class Singleton<T> : Node where T : Node
+namespace KongrooTools
 {
-	public static T _ { get; private set; }
+    public partial class Singleton<T> : Node where T : Node
+    {
+        public static T _ { get; private set; }
 
-	public override void _Ready()
-	{
-		_ = this as T;
-		GD.Print("Running base ready");
-	}
+        public override void _Ready()
+        {
+            _ = this as T;
+            GD.Print("Running base ready");
+        }
+    }
 }

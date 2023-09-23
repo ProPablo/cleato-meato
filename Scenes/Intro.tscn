@@ -1,7 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://jjhhxsb56yoi"]
+[gd_scene load_steps=20 format=3 uid="uid://jjhhxsb56yoi"]
 
 [ext_resource type="Script" path="res://Scripts/SkyboxColour.cs" id="1_cwa74"]
 [ext_resource type="Script" path="res://Scripts/IntroAnimation.cs" id="1_dr3ni"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qp2tv"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_glda7"]
+material = SubResource("StandardMaterial3D_qp2tv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x84w3"]
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_y53s6"]
+material = SubResource("StandardMaterial3D_x84w3")
+radius = 20.0
+height = 40.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utv4x"]
 albedo_color = Color(0.756863, 0.176471, 0.176471, 1)
@@ -36,38 +53,38 @@ length = 10.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("SpaceCamPivot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(0.329877, 1),
-"update": 0,
-"values": [Vector3(-132.1, 77.028, 283.865), Vector3(-10, 39.359, 102.322)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(0.329877, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.153589, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cam:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpaceCamPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FarPlanet:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(0.535887, 1),
+"update": 0,
+"values": [Vector3(-160.549, 0, -150), Vector3(0, 0, -120)]
 }
 
 [sub_resource type="Animation" id="Animation_a1kbg"]
@@ -76,19 +93,19 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("SpaceCamPivot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.466517, 1),
 "update": 0,
-"values": [Vector3(-7.54364, 66.5837, 168.029), Vector3(-7.54364, 26.1478, 168.029)]
+"values": [Vector3(-0.000468731, 101.602, 184.872), Vector3(-0.000468731, 20.4537, 184.872)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
+tracks/1/path = NodePath("SpaceCamPivot:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -103,38 +120,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("SpaceCamPivot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-13.0002, 7.62243, 47.6308)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
+tracks/1/path = NodePath("SpaceCamPivot:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.0863981, -0.315141, 0.573994)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cam:rotation")
+tracks/2/path = NodePath("FarPlanet:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(-160.549, 0, -239.831)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgv7f"]
@@ -148,10 +165,263 @@ _data = {
 background_mode = 1
 ambient_light_source = 2
 ambient_light_color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+glow_intensity = 1.0
+glow_strength = 1.17
+glow_bloom = 0.19
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
+
+[node name="Stars" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000695736, 0, -274.432)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.4813, 0, -0.000213623)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2883, 23.1427, -0.000152588)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.6842, -44.6235, -0.00012207)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5709, -11.0602, -0.00012207)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.5018, -38.5486, -0.000213623)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.923, 23.8788, -0.000244141)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.7297, 47.0214, -0.000213623)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.1256, -20.7448, -0.000152588)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0123, 12.8185, -0.000183105)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.943, -14.6698, -0.000274658)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.706, -56.245, -0.000305176)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.513, -33.1023, -0.000244141)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 62.6907, -30.813, 0.000152588)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 82.3621, -53.5504, 0.000213623)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 12.9524, -57.7983, 3.05176e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 47.3557, -55.5382, 0.00012207)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 26.1503, -15.5762, 6.10352e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 89.9347, -12.6038, 0.000213623)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 109.606, -35.3412, 0.000274658)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 40.1965, -39.5891, 9.15527e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 74.5998, -37.3291, 0.000183105)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 53.3943, 2.63293, 0.00012207)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 14.155, 20.0862, 3.05176e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(-0.164445, 0.986386, -2.95208e-06, -0.986386, -0.164445, -2.50067e-06, -2.95208e-06, 2.50067e-06, 1, 33.8264, -2.65119, 9.15527e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 72.9437, 38.2816, 0.000183105)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 101.81, 29.8723, 0.000244141)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 45.8341, -11.389, 0.00012207)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 73.4948, 9.19217, 0.000183105)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 33.9866, 31.2317, 9.15527e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 85.9313, 68.3671, 0.000213623)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 114.797, 59.9578, 0.000305176)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 58.8217, 18.6964, 0.000152588)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 86.4824, 39.2776, 0.000213623)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 46.9742, 61.3171, 0.00012207)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 4.54712, 54.6626, 0)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 33.413, 46.2533, 9.15527e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -34.3859, 26.1403, -9.15527e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -5.52004, 17.731, 0)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -61.4955, -23.5304, -0.000152588)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -33.8348, -2.94919, -9.15527e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -73.343, 19.0903, -0.000183105)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -21.3983, 56.2257, -6.10352e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 7.46757, 47.8164, 3.05176e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -48.5079, 6.55508, -0.00012207)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -20.8472, 27.1363, -6.10352e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -60.3554, 49.1758, -0.000152588)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -102.782, 42.5213, -0.000274658)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -73.9166, 34.112, -0.000183105)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 1.00221, -21.0182, 0)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 29.8681, -29.4275, 6.10352e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -26.1074, -70.6888, -6.10352e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 1.55326, -50.1077, 0)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D53" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -37.9549, -28.0681, -9.15527e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D54" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 13.9898, 9.06724, 3.05176e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D55" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 42.8557, 0.657951, 0.00012207)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D56" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -13.1198, -40.6034, -3.05176e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D57" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, 14.5409, -20.0222, 3.05176e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D58" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -24.9673, 2.01729, -6.10352e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D59" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -67.3944, -4.63718, -0.000183105)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="MeshInstance3D60" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.397596, 0.917561, -1.5272e-06, -0.917561, 0.397596, -2.32618e-06, -1.5272e-06, 2.32618e-06, 1, -38.5285, -13.0465, -9.15527e-05)
+mesh = SubResource("SphereMesh_glda7")
+
+[node name="Sun" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -466.028)
+mesh = SubResource("SphereMesh_y53s6")
+skeleton = NodePath("../FarPlanet")
 
 [node name="FarPlanet" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.549, 0, -239.831)
 mesh = SubResource("SphereMesh_56gjx")
 
 [node name="Pilar" type="MeshInstance3D" parent="FarPlanet"]
@@ -189,14 +459,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2097, 14.5646, -119.629)
 mesh = SubResource("BoxMesh_1prp6")
 
 [node name="SpaceCamPivot" type="Node3D" parent="."]
-transform = Transform3D(0.812907, -0.49379, -0.308794, 0.540965, 0.836607, 0.0862906, 0.21573, -0.237193, 0.947206, -13.0002, 7.62243, 47.6308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Cam" type="Camera3D" parent="SpaceCamPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 fov = 30.0
 size = 0.015
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../SpaceCamPivot")
 autoplay = "Approach"
 libraries = {
 "": SubResource("AnimationLibrary_lgv7f")

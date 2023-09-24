@@ -19,9 +19,18 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/GameManager.cs"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="cleato_meato"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/rebuild_cs_on_focus/plugin.cfg")
 
 [input]
 

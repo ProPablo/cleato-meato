@@ -495,10 +495,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2097, 14.5646, -119.629)
 mesh = SubResource("BoxMesh_1prp6")
 
 [node name="SpaceCamPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Cam" type="Camera3D" parent="SpaceCamPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 fov = 30.0
 size = 0.015
 
@@ -516,7 +514,7 @@ environment = SubResource("Environment_052es")
 script = ExtResource("1_cwa74")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.689513, -0.422523, -0.588256, 0.218207, -0.653278, 0.724992, -0.690621, -0.628254, -0.358246, 41.8979, 0, 0)
+transform = Transform3D(0.689508, -0.422529, -0.588258, 0.218204, -0.653279, 0.724992, -0.690627, -0.628249, -0.358243, 41.8979, 0, 0)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="ChangeAnimation"]
 [connection signal="animation_finished" from="AnimationPlayer" to="Environment/WorldEnvironment" method="ChangeSkyboxColour"]

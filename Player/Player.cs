@@ -32,6 +32,7 @@ public partial class Player : CharacterBody3D
 
     public override void _Input(InputEvent @event)
     {
+		// TODO: Move to CamPivot
 		//Mouse Controls
         if (@event is InputEventMouseMotion eventMouseMotion)
         {

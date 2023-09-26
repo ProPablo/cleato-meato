@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Diagnostics;
 
+// TODO rename to camcontrols
 public partial class CamPivot : Node3D
 {
     [Export]
@@ -22,6 +23,9 @@ public partial class CamPivot : Node3D
 
     public void UpdateCamera()
     {
+        // This is tragically bad, Im gonna leave office tomorrow because of this 
+        // I need to get the camera to raycast from player to a wall, and then move the camera to the raycast hitpoint
+        // TODO: use tween to interp campostion
         Node3D cameraTransform = GetNode<Node3D>("Camera3D");
         RayCast3D cameraRay = GetNode<RayCast3D>("RayCast3D");
         float adjDist = distance;
@@ -43,11 +47,6 @@ public partial class CamPivot : Node3D
             Zpos = adjDist * Mathf.Cos(Mathf.DegToRad(angle));
             Ypos = adjDist * Mathf.Sin(Mathf.DegToRad(angle));
         }
-
-
-
-
-
 
 
         cameraTransform.Position = new Vector3(cameraTransform.Position.X, Ypos, Zpos);

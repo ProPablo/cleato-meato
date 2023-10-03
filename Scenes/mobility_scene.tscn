@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq4q4j4k7ublm"]
+[gd_scene load_steps=11 format=3 uid="uid://dq4q4j4k7ublm"]
 
 [ext_resource type="Texture2D" uid="uid://da8anjw0bdxa7" path="res://Scenes/Prefab_grey.png" id="1_ikjt4"]
 [ext_resource type="PackedScene" uid="uid://n5jdmaatiswb" path="res://Player/Player.tscn" id="2_ucxug"]
@@ -20,27 +20,37 @@ size = Vector3(5, 5, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_q5blx"]
 size = Vector3(5, 5, 5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rse04"]
+size = Vector3(9.68939, 11.44, 8.43006)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jap1s"]
+size = Vector3(9.689, 11.44, 8.43)
+
 [node name="MobilityScene" type="Node3D"]
 
 [node name="Environment" type="Node" parent="."]
 
 [node name="Ground" type="StaticBody3D" parent="Environment"]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground"]
 shape = SubResource("BoxShape3D_ebgjf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground/CollisionShape3D"]
+layers = 2
 material_override = SubResource("StandardMaterial3D_e152k")
 mesh = SubResource("BoxMesh_s2d3c")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment"]
+[node name="Object" type="StaticBody3D" parent="Environment"]
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Object"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.59456, -13.7524)
 shape = SubResource("BoxShape3D_tdrq6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Object/CollisionShape3D"]
+layers = 2
 mesh = SubResource("BoxMesh_q5blx")
 
 [node name="Player" parent="." instance=ExtResource("2_ucxug")]
@@ -52,3 +62,13 @@ environment = ExtResource("3_vllwb")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.845467, 0.534028, 0, -0.534028, 0.845467, 0, 4.97842, 0)
 shadow_enabled = true
+
+[node name="SpecialObject" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53797, 6.0165, -24.6407)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpecialObject"]
+shape = SubResource("BoxShape3D_rse04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpecialObject"]
+mesh = SubResource("BoxMesh_jap1s")

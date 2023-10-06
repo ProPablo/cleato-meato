@@ -1,0 +1,129 @@
+[gd_scene load_steps=20 format=3 uid="uid://bmmckpfueh28y"]
+
+[ext_resource type="Script" path="res://Prefabs/HitWallEffect/HitWallEffect.cs" id="1_o3q2h"]
+[ext_resource type="Texture2D" uid="uid://dv3grirbm0sn6" path="res://Prefabs/HitWallEffect/Fog2.png" id="2_c03yw"]
+
+[sub_resource type="Curve" id="Curve_3yqke"]
+_data = [Vector2(0, 0.48421), 0.0, 0.0, 0, 0, Vector2(0.285714, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ql4su"]
+curve = SubResource("Curve_3yqke")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pfegn"]
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 1, 0.1)
+direction = Vector3(0, 0.5, -1)
+spread = 30.0
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+scale_min = 0.1
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_ql4su")
+color = Color(0.639216, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_1lfo2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.251989, 1), 0.0, 0.0, 0, 0, Vector2(0.742706, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04bas"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_mdi53"]
+material = SubResource("StandardMaterial3D_04bas")
+size = 0.2
+section_length = 0.1
+section_segments = 2
+curve = SubResource("Curve_1lfo2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1uout"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ihpxs"]
+material = SubResource("StandardMaterial3D_1uout")
+radius = 0.05
+height = 0.025
+radial_segments = 8
+rings = 8
+
+[sub_resource type="Gradient" id="Gradient_savqf"]
+offsets = PackedFloat32Array(0, 0.371166, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h7dch"]
+gradient = SubResource("Gradient_savqf")
+
+[sub_resource type="Curve" id="Curve_gbcy4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.476191, 0.673684), -1.19153, -1.19153, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fgaj5"]
+curve = SubResource("Curve_gbcy4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y021j"]
+direction = Vector3(0, 0, -1)
+gravity = Vector3(0, 0.1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_curve = SubResource("CurveTexture_fgaj5")
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_h7dch")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebvt2"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_c03yw")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_3tixn"]
+material = SubResource("StandardMaterial3D_ebvt2")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6durs"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.521569, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_5ipbi"]
+material = SubResource("StandardMaterial3D_6durs")
+size = Vector2(1.5, 2)
+
+[node name="HitWallEffect" type="Node3D"]
+script = ExtResource("1_o3q2h")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Blood" type="GPUParticles3D" parent="."]
+amount = 75
+explosiveness = 0.5
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_pfegn")
+draw_passes = 2
+draw_pass_1 = SubResource("RibbonTrailMesh_mdi53")
+draw_pass_2 = SubResource("SphereMesh_ihpxs")
+
+[node name="Fog" type="GPUParticles3D" parent="."]
+amount = 20
+explosiveness = 0.2
+process_material = SubResource("ParticleProcessMaterial_y021j")
+draw_pass_1 = SubResource("QuadMesh_3tixn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0.24826, 0, -0.549227)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_5ipbi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, 0.173648, -0.221146, 0, -0.549227)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_5ipbi")
+
+[connection signal="timeout" from="DespawnTimer" to="." method="OnTimeOut"]

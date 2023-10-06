@@ -80,7 +80,7 @@ public partial class MeleeSystem : Area3D
 
     public void AdjustHitbox()
     {
-        hitboxShape.Size = new Vector3(1, 1, 2 + Mathf.Clamp(velocity, 0, 10));
+        hitboxShape.Size = new Vector3(1, 1, 3 + Mathf.Clamp(velocity*0.1f, 0, 10));
         hitboxHost.Position = new Vector3(hitboxHost.Position.X, hitboxHost.Position.Y, -hitboxShape.Size.Z / 2f);
         forwardRay.TargetPosition = new Vector3(forwardRay.TargetPosition.X, forwardRay.TargetPosition.Y, -hitboxShape.Size.Z);
 

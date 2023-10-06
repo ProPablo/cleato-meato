@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 public partial class Player : CharacterBody3D
 {
-    public const float Speed = 5.0f;
+    public const float Speed = 10.0f;
     public const float JumpVelocity = 4.5f;
 
     public float MouseSenstivity = 0.25f;

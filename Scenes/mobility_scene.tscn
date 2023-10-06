@@ -53,6 +53,14 @@ shape = SubResource("BoxShape3D_tdrq6")
 layers = 2
 mesh = SubResource("BoxMesh_q5blx")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/Object"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0977, 2.59456, -22.2364)
+shape = SubResource("BoxShape3D_tdrq6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Object/CollisionShape3D2"]
+layers = 2
+mesh = SubResource("BoxMesh_q5blx")
+
 [node name="Player" parent="." instance=ExtResource("2_ucxug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.22957, 0)
 
@@ -64,11 +72,23 @@ transform = Transform3D(1, 0, 0, 0, 0.845467, 0.534028, 0, -0.534028, 0.845467, 
 shadow_enabled = true
 
 [node name="SpecialObject" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53797, 6.0165, -24.6407)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4541, 6.0165, -24.6407)
 collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpecialObject"]
 shape = SubResource("BoxShape3D_rse04")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SpecialObject"]
+mesh = SubResource("BoxMesh_jap1s")
+
+[node name="SpecialObject2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1955, 6.0165, -24.6407)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpecialObject2"]
+shape = SubResource("BoxShape3D_rse04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpecialObject2"]
 mesh = SubResource("BoxMesh_jap1s")

@@ -7,14 +7,18 @@ using System.Transactions;
 public partial class MeleeSystem : Area3D
 {
     [Export]
-    CharacterBody3D host;
-    float velocity => host.Velocity.Length();
-    bool canAttack = true;
-    Timer attackDelayTimer;
-    Timer hitboxLingerTimer;
+    private CharacterBody3D host;
+    private float velocity => host.Velocity.Length();
+    private bool canAttack = true;
+    private Timer attackDelayTimer;
+    private Timer hitboxLingerTimer;
+    private RayCast3D forwardRay;
+    private CollisionShape3D hitboxHost;
+    private BoxShape3D hitboxShape;
 
-    CollisionShape3D hitboxHost;
-    BoxShape3D hitboxShape;
+    [Export]
+    private PackedScene bloodHit;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -23,6 +27,7 @@ public partial class MeleeSystem : Area3D
         attackDelayTimer = GetNode<Timer>("SwingTimer");
         hitboxLingerTimer = GetNode<Timer>("HitboxLinger");
         hitboxHost = GetNode<CollisionShape3D>("MeleeHitbox");
+        forwardRay = GetNode<RayCast3D>("ForwardRay");
         hitboxShape = (BoxShape3D)hitboxHost.Shape;
 
 
@@ -32,44 +37,69 @@ public partial class MeleeSystem : Area3D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        hitboxShape.Size = new Vector3(1, 1, 2 + Mathf.Clamp(velocity, 0, 10));
+
         AdjustHitbox();
         if (Input.IsActionPressed("attack") && canAttack)
         {
-            meleeAttack();
+            MeleeAttack();
         }
 
     }
 
-    public void OnCollision(Node3D body)
+    public void OnCollision(Area3D body)
     {
-        Debug.Print("Hit");
+        bool spawnBlood = true;
+        if (body.CollisionLayer == 4)
+        {
+            Debug.Print("Tier 1 meat hit");
+        }
+        else if (body.CollisionLayer == 8)
+        {
+            Debug.Print("Tier 2 meat hit");
+        }
+        else
+        {
+            //spawnBlood = false;
+            Debug.Print("Hit layer: " + body.CollisionLayer);
+        }
+
+        if (forwardRay.IsColliding() && spawnBlood)
+        {
+
+            Debug.Print("Spawn Attempted");
+            Vector3 hitPoint;
+            hitPoint = forwardRay.GetCollisionPoint();
+            HitWallEffect hit = bloodHit.Instantiate<HitWallEffect>();
+            body.AddChild(hit);
+            hit.GlobalPosition = hitPoint;
+            hit.LookAt(hitPoint + forwardRay.GetCollisionNormal(), Vector3.Up);
+            hit.Rotate(Vector3.Forward,(float)GD.RandRange(-Mathf.Pi/4,Mathf.Pi/4));
+
+        }
     }
 
     public void AdjustHitbox()
     {
+        hitboxShape.Size = new Vector3(1, 1, 2 + Mathf.Clamp(velocity, 0, 10));
         hitboxHost.Position = new Vector3(hitboxHost.Position.X, hitboxHost.Position.Y, -hitboxShape.Size.Z / 2f);
-
+        forwardRay.TargetPosition = new Vector3(forwardRay.TargetPosition.X, forwardRay.TargetPosition.Y, -hitboxShape.Size.Z);
 
     }
 
-    public void meleeAttack()
+    public void MeleeAttack()
     {
         this.Monitoring = true;
         canAttack = false;
         attackDelayTimer.Start();
         hitboxLingerTimer.Start();
-        Debug.Print("I swung");
 
     }
     public void OnLingerTimeout()
     {
         this.Monitoring = false;
-        Debug.Print("My hitbox turned off");
     }
     public void OnMeleeTimeout()
     {
         canAttack = true;
-        Debug.Print("I can swing again");
     }
 }

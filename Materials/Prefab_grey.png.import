@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da8anjw0bdxa7"
-path.s3tc="res://.godot/imported/Prefab_grey.png-65e7a49f7379fec524a2f6291c76cba8.s3tc.ctex"
+path.s3tc="res://.godot/imported/Prefab_grey.png-fd4632ac7966eb31fcc0b89fc30e10ac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Scenes/Prefab_grey.png"
-dest_files=["res://.godot/imported/Prefab_grey.png-65e7a49f7379fec524a2f6291c76cba8.s3tc.ctex"]
+source_file="res://Materials/Prefab_grey.png"
+dest_files=["res://.godot/imported/Prefab_grey.png-fd4632ac7966eb31fcc0b89fc30e10ac.s3tc.ctex"]
 
 [params]
 

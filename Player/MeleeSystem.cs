@@ -16,6 +16,8 @@ public partial class MeleeSystem : Area3D
     private CollisionShape3D hitboxHost;
     private BoxShape3D hitboxShape;
 
+    
+
     [Export]
     private PackedScene bloodHit;
 
@@ -51,22 +53,22 @@ public partial class MeleeSystem : Area3D
         bool spawnBlood = true;
         if (body.CollisionLayer == 4)
         {
-            Debug.Print("Tier 1 meat hit");
+            GD.Print("Tier 1 meat hit");
         }
         else if (body.CollisionLayer == 8)
         {
-            Debug.Print("Tier 2 meat hit");
+            GD.Print("Tier 2 meat hit");
         }
         else
         {
             //spawnBlood = false;
-            Debug.Print("Hit layer: " + body.CollisionLayer);
+            GD.Print("Hit layer: " + body.CollisionLayer);
         }
 
         if (forwardRay.IsColliding() && spawnBlood)
         {
 
-            Debug.Print("Spawn Attempted");
+            GD.Print("Spawn Attempted");
             Vector3 hitPoint;
             hitPoint = forwardRay.GetCollisionPoint();
             HitWallEffect hit = bloodHit.Instantiate<HitWallEffect>();

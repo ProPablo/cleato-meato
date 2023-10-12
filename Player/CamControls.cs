@@ -71,4 +71,9 @@ public partial class CamControls : Node3D
 
     }
 
+    public Vector3 GetAimDir()
+    {
+        return -Transform.Basis.Z;
+    }
+
 }

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_5na24"]
 [ext_resource type="Script" path="res://Player/PlayerMaster.cs" id="2_xu3e0"]
-[ext_resource type="Script" path="res://Player/CamPivot.cs" id="3_6wfdx"]
+[ext_resource type="Script" path="res://Player/CamControls.cs" id="3_6wfdx"]
 [ext_resource type="Script" path="res://Player/MeshTransparent.cs" id="3_adu1k"]
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="3_o7yg3"]
 [ext_resource type="PackedScene" uid="uid://bmmckpfueh28y" path="res://Prefabs/HitWallEffect.tscn" id="6_2grk1"]

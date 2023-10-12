@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 public partial class Player : CharacterBody3D
 {
-    [Export] public float MaxSpeed = 5.0f;
+    [Export] public float MaxSpeed = 10f;
     [Export] public float JumpImpulse = 4.5f;
     [Export] public float Acceleration = 10f;
     [Export] public float AirControl = 0.1f;

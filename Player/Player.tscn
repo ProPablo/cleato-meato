@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://n5jdmaatiswb"]
+[gd_scene load_steps=12 format=3 uid="uid://n5jdmaatiswb"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_5na24"]
 [ext_resource type="Script" path="res://Player/PlayerMaster.cs" id="2_xu3e0"]
 [ext_resource type="Script" path="res://Player/CamPivot.cs" id="3_6wfdx"]
 [ext_resource type="Script" path="res://Player/MeshTransparent.cs" id="3_adu1k"]
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="3_o7yg3"]
+[ext_resource type="PackedScene" uid="uid://bmmckpfueh28y" path="res://Prefabs/HitWallEffect.tscn" id="6_2grk1"]
+[ext_resource type="Script" path="res://Player/MeleeSystem.cs" id="6_7jwlm"]
+[ext_resource type="Shape3D" uid="uid://clhkj8sqovpi8" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jx4g"]
 
@@ -14,6 +17,7 @@
 size = Vector3(0.575, 0.4, 1.645)
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_5na24")
 
 [node name="PlayerMaster" type="Node" parent="."]
@@ -24,20 +28,50 @@ shape = SubResource("CapsuleShape3D_7jx4g")
 script = ExtResource("3_adu1k")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D"]
+layers = 2
 mesh = SubResource("CapsuleMesh_hvs30")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.584284, -0.49)
+layers = 2
 mesh = SubResource("BoxMesh_fucsh")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687393, 0)
 script = ExtResource("3_6wfdx")
 
+[node name="Melee" type="Area3D" parent="Pivot" node_paths=PackedStringArray("host")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.687393, 0)
+collision_layer = 2
+collision_mask = 13
+input_ray_pickable = false
+script = ExtResource("6_7jwlm")
+host = NodePath("../..")
+bloodHit = ExtResource("6_2grk1")
+
+[node name="MeleeHitbox" type="CollisionShape3D" parent="Pivot/Melee"]
+shape = ExtResource("6_8gec2")
+
+[node name="SwingTimer" type="Timer" parent="Pivot/Melee"]
+wait_time = 0.5
+one_shot = true
+
+[node name="HitboxLinger" type="Timer" parent="Pivot/Melee"]
+wait_time = 0.1
+one_shot = true
+
+[node name="ForwardRay" type="RayCast3D" parent="Pivot/Melee"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687393, 0)
+target_position = Vector3(0, 0, -1.5)
+
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974589, 0.223999, 0, -0.223999, 0.974589, 0, 1.83288, 2.9543)
 environment = ExtResource("3_o7yg3")
 
-[node name="RayCast3D" type="RayCast3D" parent="Pivot"]
+[node name="CameraPositionRay" type="RayCast3D" parent="Pivot"]
 collide_with_areas = true
+
+[connection signal="area_entered" from="Pivot/Melee" to="Pivot/Melee" method="OnCollision"]
+[connection signal="timeout" from="Pivot/Melee/SwingTimer" to="Pivot/Melee" method="OnMeleeTimeout"]
+[connection signal="timeout" from="Pivot/Melee/HitboxLinger" to="Pivot/Melee" method="OnLingerTimeout"]

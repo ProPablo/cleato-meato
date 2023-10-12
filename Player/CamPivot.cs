@@ -9,9 +9,15 @@ public partial class CamPivot : Node3D
     public float angle = 30f;	//Angle in degrees, gets converted later
     [Export]
     public float distance = 5f;
+    Node3D cameraTransform;
+    RayCast3D cameraRay;
+
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        cameraTransform = GetNode<Node3D>("Camera3D");
+        cameraRay = GetNode<RayCast3D>("CameraPositionRay");
 
     }
 
@@ -26,8 +32,7 @@ public partial class CamPivot : Node3D
         // This is tragically bad, Im gonna leave office tomorrow because of this 
         // I need to get the camera to raycast from player to a wall, and then move the camera to the raycast hitpoint
         // TODO: use tween to interp campostion
-        Node3D cameraTransform = GetNode<Node3D>("Camera3D");
-        RayCast3D cameraRay = GetNode<RayCast3D>("RayCast3D");
+
         float adjDist = distance;
 
         float RZpos = distance * Mathf.Cos(Mathf.DegToRad(angle));
@@ -39,8 +44,8 @@ public partial class CamPivot : Node3D
         if (cameraRay.IsColliding())
         {
             raycastHit = ToLocal(cameraRay.GetCollisionPoint());
-			Zpos = raycastHit.Z*0.9f;
-			Ypos = raycastHit.Y*0.9f;
+            Zpos = raycastHit.Z * 0.9f;
+            Ypos = raycastHit.Y * 0.9f;
         }
         else
         {

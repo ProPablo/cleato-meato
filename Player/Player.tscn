@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://n5jdmaatiswb"]
+[gd_scene load_steps=10 format=3 uid="uid://n5jdmaatiswb"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_5na24"]
+[ext_resource type="Script" path="res://Player/Grapple.cs" id="2_gwtb6"]
 [ext_resource type="Script" path="res://Player/PlayerMaster.cs" id="2_xu3e0"]
-[ext_resource type="Script" path="res://Player/CamPivot.cs" id="3_6wfdx"]
 [ext_resource type="Script" path="res://Player/MeshTransparent.cs" id="3_adu1k"]
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="3_o7yg3"]
+[ext_resource type="Script" path="res://Player/CamControls.cs" id="4_7nxaj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jx4g"]
 
@@ -15,6 +16,10 @@ size = Vector3(0.575, 0.4, 1.645)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5na24")
+
+[node name="Grapple" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687393, 0)
+script = ExtResource("2_gwtb6")
 
 [node name="PlayerMaster" type="Node" parent="."]
 script = ExtResource("2_xu3e0")
@@ -33,7 +38,7 @@ mesh = SubResource("BoxMesh_fucsh")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687393, 0)
-script = ExtResource("3_6wfdx")
+script = ExtResource("4_7nxaj")
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974589, 0.223999, 0, -0.223999, 0.974589, 0, 1.83288, 2.9543)

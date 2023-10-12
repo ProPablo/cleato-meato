@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="cleato_meato"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/mobility_scene.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -30,7 +30,7 @@ project/assembly_name="cleato_meato"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/rebuild_cs_on_focus/plugin.cfg")
+enabled=PackedStringArray("res://addons/rebuild_cs_on_focus/plugin.cfg", "res://addons/unidot/plugin.cfg")
 
 [input]
 

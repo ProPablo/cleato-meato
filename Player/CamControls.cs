@@ -3,22 +3,39 @@ using System;
 using System.Diagnostics;
 
 // TODO rename to camcontrols
-public partial class CamPivot : Node3D
+public partial class CamControls : Node3D
 {
-    [Export]
-    public float angle = 30f;	//Angle in degrees, gets converted later
-    [Export]
-    public float distance = 5f;
+    [Export] public float angle = 30f;	//Angle in degrees, gets converted later
+    [Export] public float distance = 5f;
     // Called when the node enters the scene tree for the first time.
+     public float upperBounds = 70f;
+    public float lowerBounds = 80f;   
+
+    private Player _parent;
+
     public override void _Ready()
     {
-
+        _parent = GetParent<Player>();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _PhysicsProcess(double delta)
     {
         UpdateCamera();
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        base._Input(@event);
+
+        if (@event is InputEventMouseMotion eventMouseMotion)
+        {
+            _parent.Rotate(Vector3.Up, -Mathf.DegToRad(eventMouseMotion.Relative.X * _parent.MouseSenstivity));
+            float desiredRotation = Mathf.Clamp(Rotation.X - Mathf.DegToRad(eventMouseMotion.Relative.Y * _parent.MouseSenstivity),
+            -Mathf.DegToRad(upperBounds),
+            Mathf.DegToRad(lowerBounds));
+            Rotation = new Vector3(desiredRotation, Rotation.Y, Rotation.Z);
+        }
     }
 
     public void UpdateCamera()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://n5jdmaatiswb"]
+[gd_scene load_steps=15 format=3 uid="uid://n5jdmaatiswb"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_5na24"]
 [ext_resource type="Script" path="res://Player/PlayerMaster.cs" id="2_xu3e0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmmckpfueh28y" path="res://Prefabs/HitWallEffect/HitWallEffect.tscn" id="6_2grk1"]
 [ext_resource type="Script" path="res://Player/MeleeSystem.cs" id="6_7jwlm"]
 [ext_resource type="Shape3D" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
+[ext_resource type="PackedScene" uid="uid://c4g353hu3u0uy" path="res://Prefabs/GrappleHook.tscn" id="6_g12vs"]
 [ext_resource type="Script" path="res://Player/Grapple.cs" id="9_7qva1"]
 
 [sub_resource type="Curve" id="Curve_x3nuy"]
@@ -44,6 +45,16 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687393, 0)
 script = ExtResource("3_6wfdx")
 
+[node name="Grapple" type="Node3D" parent="Pivot"]
+script = ExtResource("9_7qva1")
+GrappleAcceleration = 92.735
+GrapplePointMesh = ExtResource("6_g12vs")
+
+[node name="ForwardRay" type="RayCast3D" parent="Pivot/Grapple"]
+target_position = Vector3(0, 0, -200)
+collision_mask = 13
+debug_shape_custom_color = Color(0, 0.788235, 0.0901961, 0.176471)
+
 [node name="Eyes" type="MeshInstance3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103109, -0.49)
 layers = 2
@@ -75,6 +86,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687393, 0)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 5
 collide_with_areas = true
+debug_shape_custom_color = Color(0, 0.945098, 1, 1)
+debug_shape_thickness = 5
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974589, 0.223999, 0, -0.223999, 0.974589, 0, 1.83288, 2.9543)
@@ -82,9 +95,6 @@ environment = ExtResource("3_o7yg3")
 
 [node name="CameraPositionRay" type="RayCast3D" parent="Pivot"]
 collide_with_areas = true
-
-[node name="Grapple" type="Node3D" parent="."]
-script = ExtResource("9_7qva1")
 
 [connection signal="area_entered" from="Pivot/Melee" to="Pivot/Melee" method="OnCollision"]
 [connection signal="timeout" from="Pivot/Melee/SwingTimer" to="Pivot/Melee" method="OnMeleeTimeout"]

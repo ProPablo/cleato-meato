@@ -16,7 +16,8 @@ public partial class MeleeSystem : Area3D
     private CollisionShape3D hitboxHost;
     private BoxShape3D hitboxShape;
 
-    
+    //https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_exports.html
+    [Export(PropertyHint.Layers3DPhysics)] public uint Tier1MeatLayer;
 
     [Export]
     private PackedScene bloodHit;
@@ -31,8 +32,6 @@ public partial class MeleeSystem : Area3D
         hitboxHost = GetNode<CollisionShape3D>("MeleeHitbox");
         forwardRay = GetNode<RayCast3D>("ForwardRay");
         hitboxShape = (BoxShape3D)hitboxHost.Shape;
-
-
 
     }
 
@@ -75,14 +74,14 @@ public partial class MeleeSystem : Area3D
             body.AddChild(hit);
             hit.GlobalPosition = hitPoint;
             hit.LookAt(hitPoint + forwardRay.GetCollisionNormal(), Vector3.Up);
-            hit.Rotate(Vector3.Forward,(float)GD.RandRange(-Mathf.Pi/4,Mathf.Pi/4));
+            hit.Rotate(Vector3.Forward, (float)GD.RandRange(-Mathf.Pi / 4, Mathf.Pi / 4));
 
         }
     }
 
     public void AdjustHitbox()
     {
-        hitboxShape.Size = new Vector3(1, 1, 3 + Mathf.Clamp(velocity*0.1f, 0, 10));
+        hitboxShape.Size = new Vector3(1, 1, 3 + Mathf.Clamp(velocity * 0.1f, 0, 10));
         hitboxHost.Position = new Vector3(hitboxHost.Position.X, hitboxHost.Position.Y, -hitboxShape.Size.Z / 2f);
         forwardRay.TargetPosition = new Vector3(forwardRay.TargetPosition.X, forwardRay.TargetPosition.Y, -hitboxShape.Size.Z);
 

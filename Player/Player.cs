@@ -11,12 +11,14 @@ public partial class Player : CharacterBody3D
     [Export] public float AirControl = 0.1f;
     [Export] public float MouseSenstivity = 0.25f;
 
-    private Vector3 _desiredUnitDir = Vector3.Zero;
-
-    private Node3D _cameraPivot;
-    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+    public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
     public PlayerMaster Master;
+    private Node3D _cameraPivot;
+
+    private Vector3 _desiredUnitDir = Vector3.Zero;
+    private bool _jumpRequested = false;
+
     public override void _EnterTree()
     {
         base._EnterTree();
@@ -34,15 +36,14 @@ public partial class Player : CharacterBody3D
         base._Process(delta);
         Vector2 inputDir = Input.GetVector("moveLeft", "moveRight", "moveForward", "moveBackward");
         _desiredUnitDir = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+
+        if (Input.IsActionJustPressed("jump"))
+            _jumpRequested = true;
     }
 
     public override void _PhysicsProcess(double delta)
     {
         Movement(delta);
-    }
-    public override void _Input(InputEvent @event)
-    {
-
     }
 
     ///<summary>
@@ -64,11 +65,13 @@ public partial class Player : CharacterBody3D
 
         // Add the gravity.
         if (!IsOnFloor())
-            moveDir.Y = target.Y - gravity * (float)delta;
+            moveDir.Y = target.Y - Gravity * (float)delta;
 
         // Handle Jump.
-        if (Input.IsActionJustPressed("Jump") && IsOnFloor())
+        if (_jumpRequested && IsOnFloor()) {
             moveDir.Y = JumpImpulse;
+            _jumpRequested = false;
+        }
 
         Velocity = moveDir;
         MoveAndSlide();
@@ -89,7 +92,7 @@ public partial class Player : CharacterBody3D
 
         // Add the gravity.
         if (!IsOnFloor())
-            velocity.Y -= gravity * (float)delta;
+            velocity.Y -= Gravity * (float)delta;
 
         // Handle Jump.
         if (Input.IsActionJustPressed("Jump") && IsOnFloor())

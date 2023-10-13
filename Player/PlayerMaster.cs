@@ -17,8 +17,8 @@ public partial class PlayerMaster : Node
         // https://kidscancode.org/godot_recipes/3.x/basics/getting_nodes/
         // Controller = GetNode<Player>("../../Player");
         Controller = GetParent<Player>();
-		Grapple = GetNode<Grapple>("../Grapple");
 		Aim = GetNode<CamControls>("../Pivot");
+		Grapple = GetNode<Grapple>("../Pivot/Grapple");
         Melee = GetNode<MeleeSystem>("../Pivot/Melee");
 
         GameManager._.PlayerMaster = this;

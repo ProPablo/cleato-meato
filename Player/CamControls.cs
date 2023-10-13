@@ -1,4 +1,5 @@
 using Godot;
+using KongrooTools;
 using System;
 using System.Diagnostics;
 
@@ -74,6 +75,11 @@ public partial class CamControls : Node3D
     public Vector3 GetAimDir()
     {
         return -Transform.Basis.Z;
+    }
+
+    public Ray GetAimRay()
+    {
+        return new Ray(ToGlobal(Transform.Origin), GetAimDir());
     }
 
 }

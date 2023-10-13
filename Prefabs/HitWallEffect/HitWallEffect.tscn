@@ -23,8 +23,8 @@ scale_curve = SubResource("CurveTexture_ql4su")
 color = Color(0.639216, 0, 0, 1)
 
 [sub_resource type="Curve" id="Curve_1lfo2"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.251989, 1), 0.0, 0.0, 0, 0, Vector2(0.742706, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0.00530504, 0.284211), 0.0, 9.10402, 0, 0, Vector2(0.289125, 0.631579), -1.78579, -1.78579, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04bas"]
 shading_mode = 0

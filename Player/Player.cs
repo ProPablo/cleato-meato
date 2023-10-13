@@ -61,9 +61,10 @@ public partial class Player : CharacterBody3D
         var accel = Acceleration * TurnAroundCurve.Sample(targetDot);
         GD.Print($"player accel: {accel}");
 
+        //THis includes some Y vel too so player will go *slightly* faster when jumping
         var moveDir = Velocity.MoveToward(target, accel* (float)delta);
 
-        // Add the gravity.
+
         if (!IsOnFloor())
             moveDir.Y = target.Y - Gravity * (float)delta;
 
@@ -74,6 +75,7 @@ public partial class Player : CharacterBody3D
         }
 
         Velocity = moveDir;
+        // Using this, there is no friction built in so we would have to make it ourself
         MoveAndSlide();
     }
 

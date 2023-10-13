@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx30nqgednsch"]
+
+[ext_resource type="PackedScene" uid="uid://fwnge6hbqwwq" path="res://Player/Model/Cleaver/Cleaver.fbx" id="1_fnmog"]
+
+[node name="Cleaver" instance=ExtResource("1_fnmog")]
+
+[node name="Cleaver" parent="RootNode" index="0"]
+transform = Transform3D(0, -100, 0, 0, 0, 100, -100, 0, 0, 0, 0.657585, -0.191648)

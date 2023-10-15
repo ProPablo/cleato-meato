@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Player/CamControls.cs" id="3_6wfdx"]
 [ext_resource type="Script" path="res://Player/MeshTransparent.cs" id="3_adu1k"]
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="3_o7yg3"]
-[ext_resource type="PackedScene" uid="uid://bmmckpfueh28y" path="res://Prefabs/HitWallEffect.tscn" id="6_2grk1"]
+[ext_resource type="PackedScene" uid="uid://bmmckpfueh28y" path="res://Prefabs/HitWallEffect/HitWallEffect.tscn" id="6_2grk1"]
 [ext_resource type="Script" path="res://Player/MeleeSystem.cs" id="6_7jwlm"]
 [ext_resource type="Shape3D" uid="uid://clhkj8sqovpi8" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
 

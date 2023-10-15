@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvp8h0kbtyol5"
-path.s3tc="res://.godot/imported/CleaverTexture_METALIC.png-18ee50a8126782b70f8bdb14bb02958a.s3tc.ctex"
+uid="uid://ne7tgpp64ijh"
+path.s3tc="res://.godot/imported/CleaverTexture.png-c1823479cb4c5f7343a3e3c2f03aab24.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Player/Model/Cleaver/CleaverTexture_METALIC.png"
-dest_files=["res://.godot/imported/CleaverTexture_METALIC.png-18ee50a8126782b70f8bdb14bb02958a.s3tc.ctex"]
+source_file="res://Player/Model/Cleaver/textures/CleaverTexture.png"
+dest_files=["res://.godot/imported/CleaverTexture.png-c1823479cb4c5f7343a3e3c2f03aab24.s3tc.ctex"]
 
 [params]
 

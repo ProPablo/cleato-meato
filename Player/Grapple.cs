@@ -8,6 +8,7 @@ using KongrooTools;
 
 public partial class Grapple : Node3D
 {
+    [Export] PackedScene GrapplePointMesh;
 
     [ExportGroup("Tf2 grapple props")]
     [Export] public float GrappleSpeed = 15f;
@@ -15,7 +16,6 @@ public partial class Grapple : Node3D
     [ExportGroup("RoR2 grapple props")]
     [Export] public float GrappleAcceleration = 10f;
     [Export] public float EscapePullForceMult = 1.1f;
-    [Export] PackedScene GrapplePointMesh;
     // [Export(PropertyHint.Layers3DPhysics)] 
     public uint GrappleableLayer;
 
@@ -138,7 +138,14 @@ public partial class Grapple : Node3D
             _grapplePoint = null;
 
             var vel = _parent.Velocity;
-            vel.Y += _parent.JumpImpulse;
+            if (vel.Y > 0)
+            {
+                vel.Y += _parent.JumpImpulse;
+            }
+            else
+            {
+                vel.Y = _parent.JumpImpulse;
+            }
             _parent.Velocity = vel;
             _inputRequest = InputRequest.None;
         }

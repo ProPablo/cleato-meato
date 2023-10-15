@@ -62,17 +62,18 @@ public partial class Player : CharacterBody3D
         GD.Print($"player accel: {accel}");
 
         //THis includes some Y vel too so player will go *slightly* faster when jumping
-        var moveDir = Velocity.MoveToward(target, accel* (float)delta);
+        var moveDir = Velocity.MoveToward(target, accel * (float)delta);
 
 
         if (!IsOnFloor())
             moveDir.Y = target.Y - Gravity * (float)delta;
 
         // Handle Jump.
-        if (_jumpRequested && IsOnFloor()) {
+        if (_jumpRequested && IsOnFloor())
+        {
             moveDir.Y = JumpImpulse;
-            _jumpRequested = false;
         }
+        _jumpRequested = false;
 
         Velocity = moveDir;
         // Using this, there is no friction built in so we would have to make it ourself

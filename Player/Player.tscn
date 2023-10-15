@@ -7,7 +7,7 @@
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="3_o7yg3"]
 [ext_resource type="PackedScene" uid="uid://bmmckpfueh28y" path="res://Prefabs/HitWallEffect/HitWallEffect.tscn" id="6_2grk1"]
 [ext_resource type="Script" path="res://Player/MeleeSystem.cs" id="6_7jwlm"]
-[ext_resource type="Shape3D" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
+[ext_resource type="Shape3D" uid="uid://clhkj8sqovpi8" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
 [ext_resource type="PackedScene" uid="uid://c4g353hu3u0uy" path="res://Prefabs/GrappleHook.tscn" id="6_g12vs"]
 [ext_resource type="Script" path="res://Player/Grapple.cs" id="9_7qva1"]
 
@@ -47,6 +47,7 @@ script = ExtResource("3_6wfdx")
 
 [node name="Grapple" type="Node3D" parent="Pivot"]
 script = ExtResource("9_7qva1")
+GrappleSpeed = 50.0
 GrappleAcceleration = 92.735
 GrapplePointMesh = ExtResource("6_g12vs")
 

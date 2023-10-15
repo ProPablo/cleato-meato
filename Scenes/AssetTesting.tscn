@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://du7eitkloshkw"]
+
+[ext_resource type="PackedScene" uid="uid://wu7b7kgcrxji" path="res://Player/Model/Cleaver/cleaver.tscn" id="1_0eust"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_73u7e"]
+
+[node name="AssetTesting" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_73u7e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.740418, 0.672147, 0, -0.672147, 0.740418, 0, 0, 0)
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.915504, -0.0139064)
+
+[node name="Cleaver" parent="." instance=ExtResource("1_0eust")]
+transform = Transform3D(0.846109, 0, 0.533009, 0, 1, 0, -0.533009, 0, 0.846109, 0.352194, 1.03561, 0.0842723)

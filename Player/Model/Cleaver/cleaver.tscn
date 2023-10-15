@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wu7b7kgcrxji"]
+
+[ext_resource type="PackedScene" uid="uid://lmrisfplyj76" path="res://Player/Model/Cleaver/Cleaver.blend" id="1_gussn"]
+
+[node name="Cleaver" instance=ExtResource("1_gussn")]
+
+[node name="Cleaver" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

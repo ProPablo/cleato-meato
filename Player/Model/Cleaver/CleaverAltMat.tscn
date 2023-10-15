@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://chg76j5suhc86"]
+
+[ext_resource type="PackedScene" uid="uid://lmrisfplyj76" path="res://Player/Model/Cleaver/Cleaver.blend" id="1_1en1k"]
+[ext_resource type="Material" uid="uid://3wn2x81bie0w" path="res://Player/Model/Cleaver/CleaverMat.tres" id="2_0tra4"]
+
+[node name="Cleaver" instance=ExtResource("1_1en1k")]
+
+[node name="Cleaver" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_0tra4")

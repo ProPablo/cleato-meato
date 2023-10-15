@@ -1,28 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://du7eitkloshkw"]
+[gd_scene load_steps=4 format=3 uid="uid://btbr5vj7edk6"]
 
-[ext_resource type="PackedScene" uid="uid://wu7b7kgcrxji" path="res://Player/Model/Cleaver/cleaver.tscn" id="1_0eust"]
-[ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="2_xoewc"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_73u7e"]
+[ext_resource type="PackedScene" uid="uid://lmrisfplyj76" path="res://Player/Model/Cleaver/Cleaver.blend" id="1_3y2sa"]
+[ext_resource type="PackedScene" uid="uid://chg76j5suhc86" path="res://Player/Model/Cleaver/CleaverAltMat.tscn" id="2_gi00g"]
+[ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="2_q2585"]
 
 [node name="AssetTesting" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_73u7e")
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.24634)
+
+[node name="Cleaver" parent="." instance=ExtResource("1_3y2sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.97259, 0.96134)
+
+[node name="Cleaver2" parent="." instance=ExtResource("2_gi00g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.572486, -1.96773, 0.969666)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.813466, -0.390929, 0.430636, 0, 0.740418, 0.672147, -0.581612, -0.546769, 0.602305, 0, 0, 0)
-
-[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.915504, -0.0139064)
-
-[node name="Cleaver" parent="." instance=ExtResource("1_0eust")]
-transform = Transform3D(0.846109, 0, 0.533009, -0.469747, 0.472535, 0.745686, -0.251866, -0.881312, 0.399816, 0.352194, 1.03561, 0.0842723)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.885069, 0, 0.46546, 0, 1, 0, -0.46546, 0, 0.885069, 0.786932, 1.21885, 1.36513)
+transform = Transform3D(0.251958, -0.188375, 0.949227, 0.0794985, 0.981585, 0.173695, -0.964467, 0.0316984, 0.262293, 2.55514, 0, 1.2179)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_xoewc")
+environment = ExtResource("2_q2585")

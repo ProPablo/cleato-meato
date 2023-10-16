@@ -73,6 +73,7 @@ transform = Transform3D(3.64, 0, 0, 0, 3.64, 0, 0, 0, 3.64, -8.10135, 3.75356, -
 [node name="Player" parent="." instance=ExtResource("2_ucxug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.22957, 0)
 JumpImpulse = 10.06
+Acceleration = 40.06
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("3_vllwb")

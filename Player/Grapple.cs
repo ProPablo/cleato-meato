@@ -9,6 +9,7 @@ using KongrooTools;
 public partial class Grapple : Node3D
 {
     [Export] PackedScene GrapplePointMesh;
+    [Export] float CloseRangeFreedom = 0.5f;
 
     [ExportGroup("Tf2 grapple props")]
     [Export] public float GrappleSpeed = 15f;
@@ -94,8 +95,13 @@ public partial class Grapple : Node3D
     {
         if (_grapplePoint == null)
             return;
+        var player2HookDir = _grapplePoint.Transform.Origin - _parent.Transform.Origin;
+        var currentDistance = player2HookDir.Length();
 
-        var player2HookDir = (_grapplePoint.Transform.Origin - _parent.Transform.Origin).Normalized();
+        if (CloseRangeFreedom > currentDistance)
+            return;
+        player2HookDir = player2HookDir / currentDistance;
+
         _parent.Velocity = player2HookDir * GrappleSpeed;
     }
 

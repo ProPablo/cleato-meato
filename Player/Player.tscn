@@ -13,7 +13,7 @@
 
 [sub_resource type="Curve" id="Curve_x3nuy"]
 max_value = 5.0
-_data = [Vector2(0, 2.5), 0.0, 0.0, 0, 0, Vector2(0.35, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 2.5), 0.0, 0.0, 0, 0, Vector2(0.235474, 1.05263), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jx4g"]

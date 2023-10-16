@@ -47,7 +47,7 @@ public partial class MeleeSystem : Area3D
 
     }
 
-    public void OnCollision(Area3D body)
+    public void OnMeatAreaEnter(Area3D body)
     {
         bool spawnBlood = true;
         if (body.CollisionLayer == 4)
@@ -66,16 +66,15 @@ public partial class MeleeSystem : Area3D
 
         if (forwardRay.IsColliding() && spawnBlood)
         {
-
             GD.Print("Spawn Attempted");
             Vector3 hitPoint;
             hitPoint = forwardRay.GetCollisionPoint();
             HitWallEffect hit = bloodHit.Instantiate<HitWallEffect>();
             body.AddChild(hit);
             hit.GlobalPosition = hitPoint;
-            hit.LookAt(hitPoint + forwardRay.GetCollisionNormal(), Vector3.Up);
+            var toLookAt = hitPoint + forwardRay.GetCollisionNormal();
+            hit.LookAt(toLookAt, Vector3.Up);
             hit.Rotate(Vector3.Forward, (float)GD.RandRange(-Mathf.Pi / 4, Mathf.Pi / 4));
-
         }
     }
 

@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdq6rxygp3xo5"]
+
+[ext_resource type="Material" uid="uid://dag6rp0mfx7t1" path="res://Materials/MeatCloth.tres" id="1_bvyy0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_b146c"]
+lightmap_size_hint = Vector2i(430, 315)
+flip_faces = true
+uv2_padding = 3.74
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_okbef"]
+size = Vector3(0.968316, 1, 0.431274)
+
+[node name="MeathCLoth" type="Area3D"]
+transform = Transform3D(3.64, 0, 0, 0, 3.64, 0, 0, 0, 3.64, 0, 0, 0)
+collision_layer = 4
+
+[node name="SoftBody" type="SoftBody3D" parent="."]
+sorting_use_aabb_center = false
+material_override = ExtResource("1_bvyy0")
+cast_shadow = 0
+ignore_occlusion_culling = true
+gi_lightmap_scale = 1
+mesh = SubResource("QuadMesh_b146c")
+collision_layer = 17
+collision_mask = 3
+pinned_points = [143, 132, 11, 0, 27]
+attachments/0/point_index = 143
+attachments/0/spatial_attachment_path = NodePath("")
+attachments/0/offset = Vector3(0, 0, 0)
+attachments/1/point_index = 132
+attachments/1/spatial_attachment_path = NodePath("")
+attachments/1/offset = Vector3(0, 0, 0)
+attachments/2/point_index = 11
+attachments/2/spatial_attachment_path = NodePath("")
+attachments/2/offset = Vector3(0, 0, 0)
+attachments/3/point_index = 0
+attachments/3/spatial_attachment_path = NodePath("")
+attachments/3/offset = Vector3(0, 0, 0)
+attachments/4/point_index = 27
+attachments/4/spatial_attachment_path = NodePath("")
+attachments/4/offset = Vector3(0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_okbef")

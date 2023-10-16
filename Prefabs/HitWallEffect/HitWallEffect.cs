@@ -15,9 +15,8 @@ public partial class HitWallEffect : Node3D
     {
     }
 
-
     public void OnTimeOut()
     {
-		this.QueueFree();
+        this.QueueFree();
     }
 }

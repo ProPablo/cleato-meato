@@ -7,10 +7,9 @@ namespace KongrooTools
     {
         public static T _ { get; private set; }
 
-        public override void _Ready()
+        public override void _EnterTree()
         {
             _ = this as T;
-            GD.Print("Running base ready");
         }
     }
 }

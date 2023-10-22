@@ -1,28 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdq6rxygp3xo5"]
+[gd_scene load_steps=6 format=3 uid="uid://cdq6rxygp3xo5"]
 
 [ext_resource type="Material" uid="uid://dag6rp0mfx7t1" path="res://Materials/MeatCloth.tres" id="1_7oe3i"]
 [ext_resource type="ArrayMesh" uid="uid://bmdi4tley1byd" path="res://ClothMesh/epic_mesh.tres" id="1_dkq74"]
+[ext_resource type="Script" path="res://Prefabs/MeatCloth.cs" id="1_fql7a"]
+[ext_resource type="Script" path="res://Prefabs/MeatSoftBody.cs" id="4_qkhss"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okbef"]
 size = Vector3(0.968316, 1, 0.431274)
 
-[node name="MeathCLoth" type="Area3D"]
+[node name="MeathCLoth" type="Area3D" node_paths=PackedStringArray("StickPoints")]
 transform = Transform3D(3.64, 0, 0, 0, 3.64, 0, 0, 0, 3.64, 0, 0, 0)
 collision_layer = 4
+script = ExtResource("1_fql7a")
+StickPoints = [NodePath("Node3D2"), NodePath("Node3D")]
 
 [node name="SoftBody" type="SoftBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.250278, -0.968174, 0, 0.968174, 0.250278, 0, 1.78982, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.78982, 0)
 material_override = ExtResource("1_7oe3i")
 mesh = ExtResource("1_dkq74")
 collision_layer = 17
 collision_mask = 3
-pinned_points = [1, 0]
+linear_stiffness = 0.2
+pinned_points = [1, 0, 106, 82]
 attachments/0/point_index = 1
 attachments/0/spatial_attachment_path = NodePath("")
 attachments/0/offset = Vector3(0, 0, 0)
 attachments/1/point_index = 0
 attachments/1/spatial_attachment_path = NodePath("")
 attachments/1/offset = Vector3(0, 0, 0)
+attachments/2/point_index = 106
+attachments/2/spatial_attachment_path = NodePath("../Node3D2")
+attachments/2/offset = Vector3(0.19354, 1.12173, -2.9203e-08)
+attachments/3/point_index = 82
+attachments/3/spatial_attachment_path = NodePath("../Node3D")
+attachments/3/offset = Vector3(-0.193541, 1.12173, -2.9203e-08)
+script = ExtResource("4_qkhss")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_okbef")
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1978, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1978, 0, 0)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdq6rxygp3xo5"]
 
-[ext_resource type="ArrayMesh" uid="uid://bmdi4tley1byd" path="res://ClothMesh/epic_mesh.tres" id="1_dkq74"]
+[ext_resource type="ArrayMesh" path="res://ClothMesh/epic_mesh.tres" id="1_dkq74"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okbef"]
 size = Vector3(0.968316, 1, 0.431274)
@@ -10,26 +10,26 @@ transform = Transform3D(3.64, 0, 0, 0, 3.64, 0, 0, 0, 3.64, 0, 0, 0)
 collision_layer = 4
 
 [node name="SoftBody" type="SoftBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.768004, -0.640445, 0, 0.640445, 0.768004, 0, 1.78982, 0)
+transform = Transform3D(1, 0, 0, 0, 0.250278, -0.968174, 0, 0.968174, 0.250278, 0, 1.78982, 0)
 mesh = ExtResource("1_dkq74")
 collision_layer = 17
 collision_mask = 3
 pinned_points = [0, 1, 8, 29, 97]
 attachments/0/point_index = 0
 attachments/0/spatial_attachment_path = NodePath("..")
-attachments/0/offset = Vector3(7.34896, 6.49642, -5.64403)
+attachments/0/offset = Vector3(7.34896, 8.90489, -1.83929)
 attachments/1/point_index = 1
 attachments/1/spatial_attachment_path = NodePath("..")
-attachments/1/offset = Vector3(-7.34896, 6.49642, -5.64403)
+attachments/1/offset = Vector3(-7.34896, 8.90489, -1.83929)
 attachments/2/point_index = 8
 attachments/2/spatial_attachment_path = NodePath("..")
-attachments/2/offset = Vector3(0, 0, 0)
+attachments/2/offset = Vector3(7.34896, 1.143, 0.167208)
 attachments/3/point_index = 29
 attachments/3/spatial_attachment_path = NodePath("..")
-attachments/3/offset = Vector3(0, 0, 0)
+attachments/3/offset = Vector3(-7.34896, 1.143, 0.167208)
 attachments/4/point_index = 97
 attachments/4/spatial_attachment_path = NodePath("..")
-attachments/4/offset = Vector3(0.323044, 3.07344, -1.53928)
+attachments/4/offset = Vector3(0.275739, 1.143, 0.167208)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_okbef")

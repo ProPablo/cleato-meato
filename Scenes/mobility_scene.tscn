@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dq4q4j4k7ublm"]
+[gd_scene load_steps=12 format=3 uid="uid://dq4q4j4k7ublm"]
 
 [ext_resource type="Material" uid="uid://biqp3elsnldky" path="res://Materials/sample_texture_mat.tres" id="1_voh86"]
 [ext_resource type="PackedScene" uid="uid://cdq6rxygp3xo5" path="res://Prefabs/MeatCloth.tscn" id="2_gt0q6"]
 [ext_resource type="PackedScene" uid="uid://n5jdmaatiswb" path="res://Player/Player.tscn" id="2_ucxug"]
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="3_vllwb"]
 [ext_resource type="PackedScene" uid="uid://b3c0j18iox7t4" path="res://Prefabs/TestMeat.tscn" id="4_8t6hk"]
-[ext_resource type="Material" uid="uid://dag6rp0mfx7t1" path="res://Materials/MeatCloth.tres" id="6_caflh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tdrq6"]
 size = Vector3(5, 5, 26.0065)
@@ -24,10 +23,6 @@ size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_q5blx"]
 size = Vector3(5, 5, 5)
-
-[sub_resource type="QuadMesh" id="QuadMesh_dvlc2"]
-subdivide_width = 295
-subdivide_depth = 395
 
 [node name="MobilityScene" type="Node3D"]
 
@@ -86,8 +81,3 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, -0.901531, 0.432715, 0, -0.432715, -0.901531, -18.3922, 10.762, -12.5129)
 light_energy = 1.755
 shadow_enabled = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 0)
-material_override = ExtResource("6_caflh")
-mesh = SubResource("QuadMesh_dvlc2")

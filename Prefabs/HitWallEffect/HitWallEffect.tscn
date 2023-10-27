@@ -1,7 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bmmckpfueh28y"]
+[gd_scene load_steps=25 format=3 uid="uid://bmmckpfueh28y"]
 
 [ext_resource type="Script" path="res://Prefabs/HitWallEffect/HitWallEffect.cs" id="1_o3q2h"]
 [ext_resource type="Texture2D" uid="uid://dv3grirbm0sn6" path="res://Prefabs/HitWallEffect/Fog2.png" id="2_c03yw"]
+[ext_resource type="Shader" uid="uid://hwlp2qoxdthx" path="res://Prefabs/HitWallEffect/Blood.tres" id="2_mc8mb"]
+[ext_resource type="SpriteFrames" uid="uid://cudu65whyf1hx" path="res://Prefabs/HitWallEffect/SpraySprites/AnimatedBloodSpray.tres" id="3_ket7l"]
 
 [sub_resource type="Curve" id="Curve_3yqke"]
 _data = [Vector2(0, 0.48421), 0.0, 0.0, 0, 0, Vector2(0.285714, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -23,8 +25,8 @@ scale_curve = SubResource("CurveTexture_ql4su")
 color = Color(0.639216, 0, 0, 1)
 
 [sub_resource type="Curve" id="Curve_1lfo2"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.251989, 1), 0.0, 0.0, 0, 0, Vector2(0.742706, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 0.305263), 0.0, 8.35457, 0, 0, Vector2(0.289125, 0.631579), -1.78579, -1.78579, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04bas"]
 shading_mode = 0
@@ -48,6 +50,22 @@ height = 0.025
 radial_segments = 8
 rings = 8
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_teexd"]
+emission_shape = 3
+emission_box_extents = Vector3(0.125, 0.515, 0.29)
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+scale_max = 2.0
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7qhw"]
+render_priority = 0
+shader = ExtResource("2_mc8mb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ru4u"]
+material = SubResource("ShaderMaterial_g7qhw")
+
 [sub_resource type="Gradient" id="Gradient_savqf"]
 offsets = PackedFloat32Array(0, 0.371166, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0)
@@ -56,7 +74,7 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_savqf")
 
 [sub_resource type="Curve" id="Curve_gbcy4"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.476191, 0.673684), -1.19153, -1.19153, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.862745, 0.863158), -0.0799551, -0.0799551, 0, 0, Vector2(1, 0), -7.76633, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_fgaj5"]
@@ -68,7 +86,7 @@ gravity = Vector3(0, 0.1, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 5.0
 scale_curve = SubResource("CurveTexture_fgaj5")
-color = Color(1, 0, 0, 1)
+color = Color(1, 0, 0, 0.513726)
 color_ramp = SubResource("GradientTexture1D_h7dch")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebvt2"]
@@ -101,7 +119,7 @@ script = ExtResource("1_o3q2h")
 autostart = true
 
 [node name="Blood" type="GPUParticles3D" parent="."]
-amount = 75
+amount = 500
 explosiveness = 0.5
 trail_enabled = true
 trail_lifetime = 0.1
@@ -110,19 +128,42 @@ draw_passes = 2
 draw_pass_1 = SubResource("RibbonTrailMesh_mdi53")
 draw_pass_2 = SubResource("SphereMesh_ihpxs")
 
+[node name="ChunkyBits" type="GPUParticles3D" parent="."]
+amount = 100
+lifetime = 0.2
+explosiveness = 0.2
+process_material = SubResource("ParticleProcessMaterial_teexd")
+draw_pass_1 = SubResource("QuadMesh_7ru4u")
+
 [node name="Fog" type="GPUParticles3D" parent="."]
 amount = 20
 explosiveness = 0.2
 process_material = SubResource("ParticleProcessMaterial_y021j")
 draw_pass_1 = SubResource("QuadMesh_3tixn")
 
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.359248, 0, 0.933242, 0, 1, 0, -0.933242, 0, 0.359248, 0.340836, 0, -0.634964)
+modulate = Color(0.572549, 0.572549, 0.572549, 1)
+pixel_size = 0.015
+sprite_frames = ExtResource("3_ket7l")
+autoplay = "default"
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-0.650589, 0, 0.75943, 0, 1, 0, -0.75943, 0, -0.650589, -0.631358, 0.0684024, -0.584205)
+modulate = Color(0.572549, 0.572549, 0.572549, 1)
+pixel_size = 0.015
+sprite_frames = ExtResource("3_ket7l")
+autoplay = "default"
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0.24826, 0, -0.549227)
+visible = false
 cast_shadow = 0
 mesh = SubResource("QuadMesh_5ipbi")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, 0.173648, -0.221146, 0, -0.549227)
+visible = false
 cast_shadow = 0
 mesh = SubResource("QuadMesh_5ipbi")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://17pp3hflxldi"]
+[gd_scene load_steps=13 format=3 uid="uid://17pp3hflxldi"]
 
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_blocks.gd" id="1_ekkk3"]
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_convex_block.gd" id="2_dn263"]
@@ -146,46 +146,6 @@ face_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0)
 active_face = -1
 face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5, 6)
 
-[sub_resource type="Resource" id="Resource_qboml"]
-script = ExtResource("3_64syg")
-selected = false
-active = false
-collsion = true
-vertex_points = PackedVector3Array(10, 1, -9, 10, 1, -7, 10, 0, -7, 10, 0, -9, 11, 1, -9, 11, 1, -7, 11, 0, -7, 11, 0, -9)
-vertex_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
-active_vertex = -1
-edge_vertex_indices = PackedInt32Array(0, 1, 1, 2, 2, 3, 3, 0, 7, 6, 6, 5, 5, 4, 4, 7, 0, 4, 5, 1, 6, 2, 7, 3)
-edge_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-active_edge = -1
-edge_face_indices = PackedInt32Array(0, 2, 0, 3, 0, 4, 0, 5, 1, 4, 1, 3, 1, 2, 1, 5, 2, 5, 2, 3, 3, 4, 4, 5)
-face_vertex_count = PackedInt32Array(4, 4, 4, 4, 4, 4)
-face_vertex_indices = PackedInt32Array(0, 1, 2, 3, 7, 6, 5, 4, 1, 0, 4, 5, 2, 1, 5, 6, 3, 2, 6, 7, 0, 3, 7, 4)
-face_material_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1)
-face_uv_transform = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-face_selected = PackedByteArray(0, 0, 0, 0, 0, 0)
-active_face = -1
-face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5)
-
-[sub_resource type="Resource" id="Resource_qqoct"]
-script = ExtResource("3_64syg")
-selected = false
-active = false
-collsion = true
-vertex_points = PackedVector3Array(10, 2, -13, 10, 2, -6, 10, -3, -6, 10, -3, -13, 13, 2, -13, 13, 2, -6, 13, -3, -6, 13, -3, -13)
-vertex_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
-active_vertex = -1
-edge_vertex_indices = PackedInt32Array(0, 1, 1, 2, 2, 3, 3, 0, 7, 6, 6, 5, 5, 4, 4, 7, 0, 4, 5, 1, 6, 2, 7, 3)
-edge_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-active_edge = -1
-edge_face_indices = PackedInt32Array(0, 2, 0, 3, 0, 4, 0, 5, 1, 4, 1, 3, 1, 2, 1, 5, 2, 5, 2, 3, 3, 4, 4, 5)
-face_vertex_count = PackedInt32Array(4, 4, 4, 4, 4, 4)
-face_vertex_indices = PackedInt32Array(0, 1, 2, 3, 7, 6, 5, 4, 1, 0, 4, 5, 2, 1, 5, 6, 3, 2, 6, 7, 0, 3, 7, 4)
-face_material_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1)
-face_uv_transform = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-face_selected = PackedByteArray(0, 0, 0, 0, 0, 0)
-active_face = -1
-face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5)
-
 [node name="Hub" type="Node3D"]
 
 [node name="CyclopsBlocks" type="Node3D" parent="."]
@@ -218,14 +178,6 @@ block_data = SubResource("Resource_ycwrk")
 [node name="Block_8" type="Node" parent="CyclopsBlocks"]
 script = ExtResource("2_dn263")
 block_data = SubResource("Resource_ob2dt")
-
-[node name="Block_6" type="Node" parent="CyclopsBlocks"]
-script = ExtResource("2_dn263")
-block_data = SubResource("Resource_qboml")
-
-[node name="Block_7" type="Node" parent="CyclopsBlocks"]
-script = ExtResource("2_dn263")
-block_data = SubResource("Resource_qqoct")
 
 [node name="Player" parent="." instance=ExtResource("4_jwrwv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16915, 0)

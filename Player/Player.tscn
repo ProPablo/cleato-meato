@@ -26,8 +26,9 @@ size = Vector3(0.575, 0.4, 1.645)
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_5na24")
-Acceleration = 15.0
+Acceleration = 45.0
 TurnAroundCurve = SubResource("Curve_x3nuy")
+AirControl = 1.01
 
 [node name="PlayerMaster" type="Node" parent="."]
 script = ExtResource("2_xu3e0")
@@ -93,6 +94,7 @@ debug_shape_thickness = 5
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974589, 0.223999, 0, -0.223999, 0.974589, 0, 1.83288, 2.9543)
 environment = ExtResource("3_o7yg3")
+doppler_tracking = 2
 
 [node name="CameraPositionRay" type="RayCast3D" parent="Pivot"]
 collide_with_areas = true

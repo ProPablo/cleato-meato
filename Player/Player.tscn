@@ -47,9 +47,9 @@ script = ExtResource("3_6wfdx")
 
 [node name="Grapple" type="Node3D" parent="Pivot"]
 script = ExtResource("9_7qva1")
+GrapplePointMesh = ExtResource("6_g12vs")
 GrappleSpeed = 50.0
 GrappleAcceleration = 92.735
-GrapplePointMesh = ExtResource("6_g12vs")
 
 [node name="ForwardRay" type="RayCast3D" parent="Pivot/Grapple"]
 target_position = Vector3(0, 0, -200)

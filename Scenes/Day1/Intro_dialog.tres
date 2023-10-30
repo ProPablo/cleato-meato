@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DialogRes" load_steps=2 format=3 uid="uid://dniwyfmpamh1i"]
+
+[ext_resource type="Script" path="res://Scripts/DialogRes.cs" id="1_gcbwi"]
+
+[resource]
+script = ExtResource("1_gcbwi")
+Lines = Array[String](["Hey man", "Greetings, and welcome"])

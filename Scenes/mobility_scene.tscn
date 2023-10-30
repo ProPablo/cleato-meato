@@ -68,5 +68,6 @@ environment = ExtResource("3_vllwb")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.845467, 0.534028, 0, -0.534028, 0.845467, 0, 4.97842, 0)
 shadow_enabled = true
+shadow_blur = 0.518
 
 [node name="Meat" parent="." instance=ExtResource("4_8t6hk")]

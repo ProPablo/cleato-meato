@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://5r3yskdff8mt"]
+[gd_scene load_steps=36 format=3 uid="uid://5r3yskdff8mt"]
 
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_blocks.gd" id="1_s22fr"]
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_convex_block.gd" id="2_rfiy1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://n5jdmaatiswb" path="res://Player/Player.tscn" id="4_5uoaj"]
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="5_hg6iq"]
 [ext_resource type="PackedScene" uid="uid://h1egwbi8sfuc" path="res://Scenes/Level1/level_1_geometry_with_Collider.tscn" id="6_cwc0l"]
+[ext_resource type="PackedScene" uid="uid://wfqut6oxs8r" path="res://Prefabs/Props/HeavyDoor/HeavyDoor.blend" id="7_h4ok1"]
 
 [sub_resource type="Resource" id="Resource_3g0fn"]
 script = ExtResource("3_gunfj")
@@ -527,6 +528,12 @@ face_selected = PackedByteArray(0, 0, 0, 0, 0, 0)
 active_face = -1
 face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5)
 
+[sub_resource type="BoxMesh" id="BoxMesh_72i4w"]
+size = Vector3(1.875, 10.16, 10.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17s6f"]
+size = Vector3(1, 10.0475, 10.6366)
+
 [node name="Level1" type="Node3D"]
 
 [node name="CyclopsBlocks" type="Node3D" parent="."]
@@ -638,7 +645,7 @@ script = ExtResource("2_rfiy1")
 block_data = SubResource("Resource_u4ue0")
 
 [node name="Player" parent="." instance=ExtResource("4_5uoaj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162238, 1.51572, -0.0315342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14255, -0.342023, -2.10708)
 JumpImpulse = 8.0
 Acceleration = 45.0
 AirControl = 0.5
@@ -652,3 +659,17 @@ light_energy = 3.097
 
 [node name="Level1Geometry" parent="." instance=ExtResource("6_cwc0l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54469, 3.70719)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.6168, -42.9021, -52.2949)
+mesh = SubResource("BoxMesh_72i4w")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3864, -42.5918, -52.3509)
+shape = SubResource("BoxShape3D_17s6f")
+
+[node name="HeavyDoor" parent="." instance=ExtResource("7_h4ok1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.201755, -2.02753, 4.35249)

@@ -1,6 +1,5 @@
-using Godot;
 using System;
-using System.Diagnostics;
+using Godot;
 
 public partial class Player : CharacterBody3D
 {
@@ -8,7 +7,7 @@ public partial class Player : CharacterBody3D
     [Export] public float JumpImpulse = 4.5f;
     [Export] public float Acceleration = 10f;
     [Export] public Curve TurnAroundCurve;
-    [Export] public float AirControl = 0.1f;
+    [Export] public float AirControl = 1.1f;
     [Export] public float MouseSenstivity = 0.25f;
 
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
@@ -51,31 +50,37 @@ public partial class Player : CharacterBody3D
     ///</summary>
     private void Movement(double delta)
     {
-        Vector3 target = Velocity;
 
+        Vector2 target;
         target.X = _desiredUnitDir.X * MaxSpeed;
-        target.Z = _desiredUnitDir.Z * MaxSpeed;
+        target.Y = _desiredUnitDir.Z * MaxSpeed;
+        var currentVel = new Vector2(Velocity.X, Velocity.Z);
 
-        // Remap the dot product to a value from 0 to 1
-        var targetDot = target.Dot(Velocity) + 1 / 0.5f;
-        var accel = Acceleration * TurnAroundCurve.Sample(targetDot);
-        GD.Print($"player accel: {accel}");
+        // Remap the dot product to a value from 0 to 1 (has to be normalized to be a value from -1 to 1)
+        var targetDot = (target.Normalized().Dot(currentVel.Normalized()) + 1) / 2;
 
-        //THis includes some Y vel too so player will go *slightly* faster when jumping
-        var moveDir = Velocity.MoveToward(target, accel * (float)delta);
+        // TODO: cache Velocity length to reuse in normalizing
+        var airControl = IsOnFloor() ? 1.0f : Mathf.Lerp(1.0f, AirControl, 1.0f - targetDot);
 
+        // float accel = Acceleration ;
+        float accel = Acceleration * TurnAroundCurve.Sample(targetDot);
+        accel *= airControl;
+        GD.Print($"player accel: {accel}, airControl: {airControl}, targetDot: {targetDot}");
+
+        var moveDir = currentVel.MoveToward(target, accel * (float)delta);
+        var moveDir3d = new Vector3(moveDir.X, Velocity.Y, moveDir.Y);
 
         if (!IsOnFloor())
-            moveDir.Y = target.Y - Gravity * (float)delta;
+            moveDir3d.Y = Velocity.Y - Gravity * (float)delta;
 
         // Handle Jump.
         if (_jumpRequested && IsOnFloor())
         {
-            moveDir.Y = JumpImpulse;
+            moveDir3d.Y = JumpImpulse;
         }
         _jumpRequested = false;
 
-        Velocity = moveDir;
+        Velocity = moveDir3d;
         // Using this, there is no friction built in so we would have to make it ourself
         MoveAndSlide();
     }

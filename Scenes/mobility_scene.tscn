@@ -60,7 +60,7 @@ mesh = SubResource("BoxMesh_q5blx")
 
 [node name="Player" parent="." instance=ExtResource("2_ucxug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.22957, 0)
-JumpImpulse = 20.0
+JumpImpulse = 9.955
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("3_vllwb")

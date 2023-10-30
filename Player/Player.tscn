@@ -7,7 +7,7 @@
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="3_o7yg3"]
 [ext_resource type="PackedScene" uid="uid://bmmckpfueh28y" path="res://Prefabs/HitWallEffect/HitWallEffect.tscn" id="6_2grk1"]
 [ext_resource type="Script" path="res://Player/MeleeSystem.cs" id="6_7jwlm"]
-[ext_resource type="Shape3D" uid="uid://clhkj8sqovpi8" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
+[ext_resource type="Shape3D" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
 [ext_resource type="PackedScene" uid="uid://c4g353hu3u0uy" path="res://Prefabs/GrappleHook.tscn" id="6_g12vs"]
 [ext_resource type="Script" path="res://Player/Grapple.cs" id="9_7qva1"]
 
@@ -26,8 +26,9 @@ size = Vector3(0.575, 0.4, 1.645)
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_5na24")
-Acceleration = 15.0
+Acceleration = 45.0
 TurnAroundCurve = SubResource("Curve_x3nuy")
+AirControl = 1.01
 
 [node name="PlayerMaster" type="Node" parent="."]
 script = ExtResource("2_xu3e0")
@@ -47,9 +48,9 @@ script = ExtResource("3_6wfdx")
 
 [node name="Grapple" type="Node3D" parent="Pivot"]
 script = ExtResource("9_7qva1")
+GrapplePointMesh = ExtResource("6_g12vs")
 GrappleSpeed = 50.0
 GrappleAcceleration = 92.735
-GrapplePointMesh = ExtResource("6_g12vs")
 
 [node name="ForwardRay" type="RayCast3D" parent="Pivot/Grapple"]
 target_position = Vector3(0, 0, -200)
@@ -93,6 +94,7 @@ debug_shape_thickness = 5
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974589, 0.223999, 0, -0.223999, 0.974589, 0, 1.83288, 2.9543)
 environment = ExtResource("3_o7yg3")
+doppler_tracking = 2
 
 [node name="CameraPositionRay" type="RayCast3D" parent="Pivot"]
 collide_with_areas = true

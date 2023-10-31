@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brl0x2dhkbfni"]
+
+[ext_resource type="Texture2D" uid="uid://cdmig0b3m6p2p" path="res://Prefabs/Props/HeavyDoor/HandleTexture.png" id="1_4cpfl"]
+
+[resource]
+albedo_texture = ExtResource("1_4cpfl")

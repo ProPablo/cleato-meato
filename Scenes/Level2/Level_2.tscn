@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://l6chlbsn1dkw"]
+
+[ext_resource type="PackedScene" uid="uid://djttkafn5kubq" path="res://Scenes/Level2/level_2_geometry_with_Collision.tscn" id="1_cbugd"]
+[ext_resource type="PackedScene" uid="uid://n5jdmaatiswb" path="res://Player/Player.tscn" id="2_2xkp4"]
+[ext_resource type="PackedScene" uid="uid://dmorjpwjc6ays" path="res://Prefabs/FleshParts/FleshParts.blend" id="3_oofme"]
+[ext_resource type="PackedScene" uid="uid://d37ofsk1nbn18" path="res://Prefabs/FleshParts/ChoiceCut.tscn" id="4_fo2l7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ykr0"]
+size = Vector3(3.29785, 7.50335, 11.4515)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mb4ot"]
+size = Vector3(1.77468, 7.43294, 11.2081)
+
+[node name="Level2" type="Node3D"]
+
+[node name="Level2Geometry" parent="." instance=ExtResource("1_cbugd")]
+
+[node name="Player" parent="." instance=ExtResource("2_2xkp4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.2154, -1.08333, 0)
+
+[node name="FleshParts" parent="." instance=ExtResource("3_oofme")]
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0909976, 0.995851, -3.97763e-09, -0.995851, -0.0909976, -4.353e-08, 17.4803, 23.9849, -69.4334)
+
+[node name="Area3D" type="Area3D" parent="FleshParts"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FleshParts/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04477, 0, -3.8147e-06)
+shape = SubResource("BoxShape3D_1ykr0")
+
+[node name="FleshParts2" parent="." instance=ExtResource("4_fo2l7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 86.3518, 20.0293, -25.3216)
+
+[node name="Area3D" type="Area3D" parent="FleshParts2"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FleshParts2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15349, 0, 0)
+shape = SubResource("BoxShape3D_mb4ot")

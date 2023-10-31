@@ -11,4 +11,6 @@ sky_material = SubResource("PanoramaSkyMaterial_jlu26")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_5l8ww")
+ambient_light_source = 3
+tonemap_mode = 2
 ssao_enabled = true

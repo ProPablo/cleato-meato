@@ -13,22 +13,31 @@ public partial class IntroAnimation : AnimationPlayer
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        if (Input.IsActionPressed("attack"))
+        {
+            SkipToHub();
+        }
     }
 
     private void ChangeAnimation(string oldName)
     {
         if (oldName == "Approach")
         {
-			AssignedAnimation = "Decend";
-			Play();
+            AssignedAnimation = "Decend";
+            Play();
         }
         if (oldName == "Decend")
         {
-            GameManager._.IsInHub = true;
-            GameManager._.IsInIntro = false;
-            GetTree().ChangeSceneToFile("res://Scenes/Hub/hub.tscn");
+            SkipToHub();
 
         }
+    }
+
+    private void SkipToHub()
+    {
+        GameManager._.IsInHub = true;
+        GameManager._.IsInIntro = false;
+        GetTree().ChangeSceneToFile("res://Scenes/Hub/hub.tscn");
     }
 
 

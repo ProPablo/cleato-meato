@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bavp1x60nosr3"]
+[gd_scene load_steps=4 format=3 uid="uid://dr37esoghoyqi"]
 
 [ext_resource type="AudioStream" uid="uid://brmu4iquyo7wm" path="res://Audio/cave themeb4.ogg" id="1_4jmh4"]
 [ext_resource type="Script" path="res://Scripts/BGMScript.cs" id="2_4vuhn"]
@@ -18,3 +18,4 @@ stream = ExtResource("3_erye8")
 attenuation_model = 3
 volume_db = -20.0
 autoplay = true
+bus = &"Radio Bus"

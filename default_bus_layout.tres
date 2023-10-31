@@ -1,0 +1,14 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://c4e1to6thfjxq"]
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_ehnub"]
+resource_name = "HighPassFilter"
+
+[resource]
+bus/1/name = &"Radio Bus"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 4.03575
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectHighPassFilter_ehnub")
+bus/1/effect/0/enabled = true

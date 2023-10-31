@@ -21,5 +21,12 @@ public partial class IntroAnimation : AnimationPlayer
 			AssignedAnimation = "Decend";
 			Play();
         }
+        if (oldName == "Decend")
+        {
+            GetTree().ChangeSceneToFile("res://Scenes/Hub/hub.tscn");
+
+        }
     }
+
+
 }

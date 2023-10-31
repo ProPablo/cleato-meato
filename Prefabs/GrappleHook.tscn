@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4g353hu3u0uy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3lnc"]
-albedo_color = Color(0, 1, 0.0627451, 1)
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_qe431"]
+radius = 0.25
+height = 0.5
 
 [node name="GrappleHook" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_c3lnc")

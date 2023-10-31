@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bsk4dj3jgmpor"]
+
+[ext_resource type="FontFile" uid="uid://3l63j45qspmi" path="res://External_Assets/Chandler42 Regular.otf" id="1_gmpo0"]
+
+[resource]
+default_font = ExtResource("1_gmpo0")
+default_font_size = 70

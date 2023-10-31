@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GlobalState" load_steps=3 format=3 uid="uid://ne7rhyyl1d83"]
+
+[ext_resource type="Script" path="res://Scripts/GlobalState.cs" id="1_3at1r"]
+[ext_resource type="Resource" uid="uid://cv1fq5ug3gwes" path="res://Scenes/Day1/Day1.tres" id="1_kuewd"]
+
+[resource]
+script = ExtResource("1_3at1r")
+Days = Array[Object]([ExtResource("1_kuewd")])

@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmw06lq630plo"]
+
+[ext_resource type="Script" path="res://Scripts/DialogManager.cs" id="1_ye8kk"]
+[ext_resource type="Theme" uid="uid://bsk4dj3jgmpor" path="res://Materials/Dialog_default_theme.tres" id="2_fbpmp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmq3e"]
+bg_color = Color(0.337255, 0.329412, 0.6, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="DialogManager" type="Node"]
+script = ExtResource("1_ye8kk")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -341.0
+offset_right = -26.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jmq3e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0214133
+anchor_top = 0.126984
+anchor_right = 0.964668
+anchor_bottom = 0.873016
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fbpmp")
+bbcode_enabled = true
+text = "Hey baby"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.033

@@ -1,9 +1,9 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://b1w1lpmyb11yk"]
 
-[ext_resource type="Texture2D" uid="uid://b7khbupxdos67" path="res://AllSkyFree_Skyboxes/AllSky_Night_MoonBurst Equirect.png" id="1_ii8fa"]
+[ext_resource type="Texture2D" uid="uid://b7khbupxdos67" path="res://External_Assets/AllSkyFree_Skyboxes/AllSky_Night_MoonBurst Equirect.png" id="1_0w1sc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jlu26"]
-panorama = ExtResource("1_ii8fa")
+panorama = ExtResource("1_0w1sc")
 
 [sub_resource type="Sky" id="Sky_5l8ww"]
 sky_material = SubResource("PanoramaSkyMaterial_jlu26")
@@ -11,3 +11,4 @@ sky_material = SubResource("PanoramaSkyMaterial_jlu26")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_5l8ww")
+ssao_enabled = true

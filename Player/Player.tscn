@@ -28,7 +28,7 @@ size = Vector3(0.575, 0.4, 1.645)
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_5na24")
-JumpImpulse = 10.0
+JumpImpulse = 20.0
 Acceleration = 45.0
 TurnAroundCurve = SubResource("Curve_x3nuy")
 AirControl = 1.01

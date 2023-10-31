@@ -25,8 +25,9 @@ public partial class MeatUI : Singleton<MeatUI>
             _timeLabel.Visible = true;
             _t1MeatLabel.Text = $"GreyCon: {GameManager._.CurrentMeat.Tier1} / {GameManager._.CurrentDayRes.MeatRequirements.Tier1}";
             _t2MeatLabel.Text = $"Choice Cut: {GameManager._.CurrentMeat.Tier2} / {GameManager._.CurrentDayRes.MeatRequirements.Tier2}";
+			var timeSpan = TimeSpan.FromSeconds(GameManager._.CurrentTime);
 
-            // _timeLabel.Text = $"Time: {int.Parse(GameManager._.CurrentTime/60f)}:{}";
+            _timeLabel.Text = $"Time: {timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}:{(timeSpan.Milliseconds / 10):D2}";
         }
         else
         {

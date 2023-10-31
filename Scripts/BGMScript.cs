@@ -21,8 +21,8 @@ public partial class BGMScript : AudioStreamPlayer3D
 
     public void CheckIfHub()
     {
+        
         bool placeholder = GameManager._.IsInHub;
-        GD.Print(Cave.Playing);
         if (Hub.Playing != placeholder) Hub.Playing = placeholder;
         if (Cave.Playing == placeholder) Cave.Playing = !placeholder;
 

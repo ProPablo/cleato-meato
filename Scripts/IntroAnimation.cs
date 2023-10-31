@@ -1,3 +1,4 @@
+using Cleato;
 using Godot;
 using System;
 using System.Diagnostics;
@@ -23,6 +24,7 @@ public partial class IntroAnimation : AnimationPlayer
         }
         if (oldName == "Decend")
         {
+            GameManager._.IsInIntro = false;
             GetTree().ChangeSceneToFile("res://Scenes/Hub/hub.tscn");
 
         }

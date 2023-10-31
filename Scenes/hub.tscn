@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://c20b0ve8jmmak" path="res://Materials/Tiles/TileFloor.tres" id="3_b7cry"]
 [ext_resource type="PackedScene" uid="uid://n5jdmaatiswb" path="res://Player/Player.tscn" id="4_jwrwv"]
 [ext_resource type="Environment" uid="uid://b1w1lpmyb11yk" path="res://base_environment.tres" id="5_efw8b"]
-[ext_resource type="Material" path="res://Materials/Metal/Metal.tres" id="5_o1410"]
+[ext_resource type="Material" uid="uid://cae5sshgnmml3" path="res://Materials/Metal/Metal.tres" id="5_o1410"]
 [ext_resource type="Material" uid="uid://blu2bqm2rlprm" path="res://Materials/Metal/Metal2.tres" id="6_45l5l"]
 [ext_resource type="PackedScene" uid="uid://cwv6n0nt14pa4" path="res://Prefabs/Props/Locker/Locker.blend" id="6_mqvbs"]
 [ext_resource type="PackedScene" uid="uid://513akomfjlkq" path="res://Prefabs/Props/Bench/Bench.blend" id="7_s2lk1"]

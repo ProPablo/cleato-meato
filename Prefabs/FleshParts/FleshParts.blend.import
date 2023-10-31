@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ckb6srtgde5gk"
-path="res://.godot/imported/Level1Geometry.blend-5c9e324c255334bf30c4106b2be2d2f7.scn"
+uid="uid://dmorjpwjc6ays"
+path="res://.godot/imported/FleshParts.blend-30ec69c672d7d3d82084fdf6b5ef61be.scn"
 
 [deps]
 
-source_file="res://Scenes/Level1/Level1Geometry.blend"
-dest_files=["res://.godot/imported/Level1Geometry.blend-5c9e324c255334bf30c4106b2be2d2f7.scn"]
+source_file="res://Prefabs/FleshParts/FleshParts.blend"
+dest_files=["res://.godot/imported/FleshParts.blend-30ec69c672d7d3d82084fdf6b5ef61be.scn"]
 
 [params]
 
@@ -23,16 +23,16 @@ meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Material.001": {
+"Material": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/GeneralFlesh/Flesh.tres"
+"use_external/path": "res://Materials/Greycon/Greycon.tres"
 }
 }
 }

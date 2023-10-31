@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cgd38oks2gge4"]
+
+[ext_resource type="Texture2D" uid="uid://dci4pejhw6h2c" path="res://Materials/Greycon/GreyconTexture.png" id="1_21lmj"]
+[ext_resource type="Texture2D" uid="uid://bfuowvy3ukn63" path="res://Materials/Greycon/Greycon_NORMAL.png" id="2_ynoqv"]
+
+[resource]
+albedo_texture = ExtResource("1_21lmj")
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("2_ynoqv")

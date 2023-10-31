@@ -11,7 +11,7 @@ namespace Cleato
         public int CurrentDay = 0;
         public DayRes CurrentDayRes => (CurrentDay >= 0) ? GlobalState.Days[CurrentDay] : null;
         public MeatRes CurrentMeat;
-        public float CurrentTime = 0f;
+        public float CurrentTime = float.MaxValue;
         public bool IsInHub = true;
 
         public override void _EnterTree()

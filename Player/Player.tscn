@@ -98,8 +98,8 @@ environment = ExtResource("3_o7yg3")
 transform = Transform3D(1, 0, 0, 0, 0.997801, 0.0662739, 0, -0.0662739, 0.997801, 0, 1.065, 0)
 light_energy = 16.0
 shadow_enabled = true
-spot_range = 52.4874
-spot_angle = 68.5523
+spot_range = 135.353
+spot_angle = 56.477
 
 [node name="CameraPositionRay" type="RayCast3D" parent="Pivot"]
 collide_with_areas = true

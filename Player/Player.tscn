@@ -79,7 +79,6 @@ host = NodePath("../..")
 Tier1MeatLayer = 4
 Tier2MeatLayer = 8
 DialogueLayer = 16
-BackDoorLayer = 32
 bloodHit = ExtResource("6_2grk1")
 
 [node name="MeleeHitbox" type="CollisionShape3D" parent="Pivot/Melee"]

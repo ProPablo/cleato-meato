@@ -22,6 +22,7 @@ GameManager="*res://Scripts/GameManager.cs"
 CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 Dialog="*res://Prefabs/Dialog.tscn"
 MeatUi="*res://Prefabs/MeatUI.tscn"
+Bgm="*res://Scenes/BGM.tscn"
 
 [display]
 

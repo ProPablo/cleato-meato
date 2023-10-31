@@ -148,6 +148,8 @@ public partial class Grapple : Node3D
         {
             _grapplePoint.QueueFree();
             _grapplePoint = null;
+            _grappleLine.QueueFree();
+            _grappleLine = null;
 
             var vel = _parent.Velocity;
             if (vel.Y > 0)
@@ -192,7 +194,7 @@ public partial class Grapple : Node3D
 
     private void UpdateGrappleLength()
     {
-        if(_grappleLine == null) return;
+        if (_grappleLine == null) return;
         var midPoint = GlobalPosition.Lerp(_grappleLoc, 0.5f);
         _grappleLine.GlobalPosition = midPoint;
         _grappleLine.LookAt(_grappleLoc);

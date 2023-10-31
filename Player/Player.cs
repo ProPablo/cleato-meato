@@ -143,7 +143,6 @@ public partial class Player : CharacterBody3D
         animTree.Set("parameters/conditions/InAir", !IsOnFloor());
         animTree.Set("parameters/conditions/OnGround", IsOnFloor());
         animTree.Set("parameters/IWR/blend_position", inputDir);
-        GD.Print(inputDir);
 
     }
 }

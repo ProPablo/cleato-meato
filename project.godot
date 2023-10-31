@@ -33,7 +33,7 @@ project/assembly_name="cleato_meato"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg", "res://addons/rebuild_cs_on_focus/plugin.cfg")
+enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg")
 
 [input]
 
@@ -80,3 +80,7 @@ grapple={
 3d_physics/layer_3="T1Meat"
 3d_physics/layer_4="T2Meat"
 3d_physics/layer_5="Dialogue"
+
+[physics]
+
+3d/default_gravity=40.0

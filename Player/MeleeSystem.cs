@@ -1,3 +1,4 @@
+using Cleato;
 using Godot;
 using System;
 using System.Diagnostics;
@@ -67,7 +68,21 @@ public partial class MeleeSystem : Area3D
         else if (Convert.ToBoolean(layerandDiag))
         {
             GD.Print("Dialogue hit");
-            //spawnBlood = false;
+            spawnBlood = false;
+            //Launch the Dialog system for the current day
+            var dialog = GameManager._.CurrentDayRes.Dialog;
+            if (!DialogManager._.IsInDialog)
+            {
+                DialogManager._.PlayDialog(dialog);
+                //Since this is a lambda function, it gets garbage collected along with cleaning up this class/Node, therefore, no need to unsub
+                DialogManager._.DialogEnded += () =>
+                {
+                    GD.Print("Dialog Finished");
+                    var nextLevel = GameManager._.CurrentDayRes.LevelScene;
+                    GameManager._.GotoScene(nextLevel);
+                };
+            }
+
         }
         else
         {
@@ -89,6 +104,8 @@ public partial class MeleeSystem : Area3D
 
         }
     }
+
+
 
     public void AdjustHitbox()
     {

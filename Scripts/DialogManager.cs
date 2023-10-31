@@ -11,6 +11,11 @@ public partial class DialogManager : Singleton<DialogManager>
     private RichTextLabel _dialogLabel;
     private uint _currentLine = 0;
 
+    public bool IsInDialog => _dialogPanel.Visible;
+
+    [Signal]
+    public delegate void DialogEndedEventHandler();
+
     public override void _Ready()
     {
         _dialogTimer = GetNode<Timer>("Timer");
@@ -77,6 +82,7 @@ public partial class DialogManager : Singleton<DialogManager>
         {
             _currentDialog = null;
             _dialogPanel.Visible = false;
+            EmitSignal(SignalName.DialogEnded);   
         }
     }
 }

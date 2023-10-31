@@ -5,4 +5,6 @@ using System;
 public partial class DayRes : Resource
 {
     [Export] public DialogRes Dialog;
+
+    [Export] public PackedScene LevelScene;
 }

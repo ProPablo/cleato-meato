@@ -18,6 +18,8 @@ public partial class MeleeSystem : Area3D
 
     //https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_exports.html
     [Export(PropertyHint.Layers3DPhysics)] public uint Tier1MeatLayer;
+    [Export(PropertyHint.Layers3DPhysics)] public uint Tier2MeatLayer;
+    [Export(PropertyHint.Layers3DPhysics)] public uint DialogueLayer;
 
     [Export]
     private PackedScene bloodHit;
@@ -47,20 +49,29 @@ public partial class MeleeSystem : Area3D
 
     }
 
+    // This is actually OnAreaEnter
     public void OnCollision(Area3D body)
     {
         bool spawnBlood = true;
-        if (body.CollisionLayer == 4)
+        uint layerandMeat1 = body.CollisionLayer & Tier1MeatLayer;
+        uint layerandMeat2 = body.CollisionLayer & Tier2MeatLayer;
+        uint layerandDiag = body.CollisionLayer & DialogueLayer;
+        if (Convert.ToBoolean(layerandMeat1))
         {
             GD.Print("Tier 1 meat hit");
         }
-        else if (body.CollisionLayer == 8)
+        else if (Convert.ToBoolean(layerandMeat2))
         {
             GD.Print("Tier 2 meat hit");
         }
+        else if (Convert.ToBoolean(layerandDiag))
+        {
+            GD.Print("Dialogue hit");
+            //spawnBlood = false;
+        }
         else
         {
-            //spawnBlood = false;
+            spawnBlood = false;
             GD.Print("Hit layer: " + body.CollisionLayer);
         }
 

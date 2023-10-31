@@ -66,7 +66,7 @@ public partial class Player : CharacterBody3D
         // float accel = Acceleration ;
         float accel = Acceleration * TurnAroundCurve.Sample(targetDot);
         accel *= airControl;
-        GD.Print($"player accel: {accel}, airControl: {airControl}, targetDot: {targetDot}");
+        //GD.Print($"player accel: {accel}, airControl: {airControl}, targetDot: {targetDot}");
 
         var moveDir = currentVel.MoveToward(target, accel * (float)delta);
         var moveDir3d = new Vector3(moveDir.X, Velocity.Y, moveDir.Y);

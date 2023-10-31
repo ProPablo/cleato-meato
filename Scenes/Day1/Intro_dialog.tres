@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_gcbwi")
-Lines = Array[String](["Hello and welcome to your first day at Cleato Meato's Flesh Emporium!", "It's hyper-sunday or something today so we got no customers", "So today's a great day to get you up to speed on what to do", "I want you to get me 15 slices of greycon", "You have a grappling hook to help you get around", "oh also the air kinda smells like death so get back before your tank are empty", "chop chop"])
+Lines = Array[String](["Hello and welcome to your first day at Cleato Meato's Flesh Emporium!", "It's hyper-sunday or something today so we got no customers", "So today's a great day to get you up to speed on what to do", "I want you to get me 5 slices of greycon", "You have a grappling hook to help you get around", "oh also the air kinda smells like death so get back before your tank are empty", "chop chop"])

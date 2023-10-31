@@ -644,7 +644,6 @@ block_data = SubResource("Resource_u4ue0")
 
 [node name="Player" parent="." instance=ExtResource("4_5uoaj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14255, -0.342023, -2.10708)
-JumpImpulse = 8.0
 AirControl = 0.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

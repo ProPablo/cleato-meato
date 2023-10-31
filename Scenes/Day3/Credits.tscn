@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bipxng87uoga5"]
+
+[ext_resource type="Theme" uid="uid://grrv8cro8v3i" path="res://Materials/TitleDisplay.tres" id="1_k4peb"]
+[ext_resource type="Script" path="res://Scenes/Day3/Credits.cs" id="1_vh5ns"]
+
+[node name="Credits" type="Node3D"]
+script = ExtResource("1_vh5ns")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k4peb")
+text = "Thank you for playing "
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = 89.0
+offset_right = 626.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k4peb")
+theme_override_font_sizes/font_size = 31
+text = "Made by Nyettus and Kongroo"

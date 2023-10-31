@@ -13,8 +13,12 @@ public partial class DialogManager : Singleton<DialogManager>
 
     public bool IsInDialog => _dialogPanel.Visible;
 
-    [Signal]
-    public delegate void DialogEndedEventHandler();
+
+    // [Signal]
+    // public delegate void DialogEndedEventHandler();
+
+    // With the above we can't null out all the consumers
+    public event Action DialogEnded;
 
     public override void _Ready()
     {
@@ -61,6 +65,7 @@ public partial class DialogManager : Singleton<DialogManager>
 
     public void PlayDialog(DialogRes dialog)
     {
+        DialogEnded = null;
         _currentDialog = dialog;
         _dialogPanel.Visible = true;
         _currentLine = 0;
@@ -82,7 +87,7 @@ public partial class DialogManager : Singleton<DialogManager>
         {
             _currentDialog = null;
             _dialogPanel.Visible = false;
-            EmitSignal(SignalName.DialogEnded);   
+            DialogEnded?.Invoke();
         }
     }
 }

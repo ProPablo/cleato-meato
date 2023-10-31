@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="GlobalState" load_steps=7 format=3 uid="uid://ne7rhyyl1d83"]
+[gd_resource type="Resource" script_class="GlobalState" load_steps=8 format=3 uid="uid://ne7rhyyl1d83"]
 
 [ext_resource type="Script" path="res://Scripts/GlobalState.cs" id="1_3at1r"]
 [ext_resource type="Resource" uid="uid://cv1fq5ug3gwes" path="res://Scenes/Day1/Day1.tres" id="1_kuewd"]
 [ext_resource type="PackedScene" uid="uid://17pp3hflxldi" path="res://Scenes/Hub/hub.tscn" id="2_ll0vs"]
 [ext_resource type="Resource" uid="uid://brhipfm8qpokl" path="res://Scenes/Day2/Day2.tres" id="2_xqsf7"]
+[ext_resource type="Resource" uid="uid://c8w80ksll28ok" path="res://Scenes/Day3/Day3.tres" id="3_8mea8"]
 [ext_resource type="Script" path="res://Scripts/DialogRes.cs" id="4_mmm4l"]
 
 [sub_resource type="Resource" id="Resource_d0gx7"]
@@ -12,6 +13,6 @@ Lines = Array[String](["You think to yourself: ", "\"Ok well I might be fucked\"
 
 [resource]
 script = ExtResource("1_3at1r")
-Days = Array[Object]([ExtResource("1_kuewd"), ExtResource("2_xqsf7")])
+Days = Array[Object]([ExtResource("1_kuewd"), ExtResource("2_xqsf7"), ExtResource("3_8mea8")])
 HubScene = ExtResource("2_ll0vs")
 LoserDialog = SubResource("Resource_d0gx7")

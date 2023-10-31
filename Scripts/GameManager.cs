@@ -8,7 +8,7 @@ namespace Cleato
     {
         public PlayerMaster PlayerMaster = null;
         public GlobalState GlobalState = null;
-        public int CurrentDay = 0;
+        [Export] public int CurrentDay = 0;
         public DayRes CurrentDayRes => (CurrentDay >= 0) ? GlobalState.Days[CurrentDay] : null;
         public MeatRes CurrentMeat;
         public float CurrentTime = float.MaxValue;

@@ -7,8 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_1glr6"]
 script = ExtResource("3_lt2n4")
-Tier1 = 25
-Tier2 = 10
+Tier1 = 15
+Tier2 = 5
 
 [resource]
 script = ExtResource("1_316t3")

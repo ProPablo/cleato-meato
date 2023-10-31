@@ -9,6 +9,7 @@ using KongrooTools;
 public partial class Grapple : Node3D
 {
     [Export] PackedScene GrapplePointMesh;
+    [Export] PackedScene GrappleLineMesh;
 
     [ExportGroup("Tf2 grapple props")]
     [Export] public float GrappleSpeed = 15f;
@@ -22,9 +23,11 @@ public partial class Grapple : Node3D
     private Player _parent;
     private CamControls _camControls;
     RayCast3D _grappleRay;
+    Vector3 _grappleLoc;
     public bool CanHit => _grappleRay.IsColliding();
     private float _lastDistance = 0f;
     private Node3D _grapplePoint = null;
+    private Node3D _grappleLine = null;
     private InputRequest _inputRequest = InputRequest.None;
 
     enum InputRequest
@@ -43,6 +46,7 @@ public partial class Grapple : Node3D
     public override void _Process(double delta)
     {
         base._Process(delta);
+        UpdateGrappleLength();
         if (Input.IsActionJustPressed("grapple"))
         {
             _inputRequest = InputRequest.Grapple;
@@ -106,10 +110,16 @@ public partial class Grapple : Node3D
         {
             if (_grappleRay.IsColliding())
             {
-                var loc = _grappleRay.GetCollisionPoint();
+                _grappleLoc = _grappleRay.GetCollisionPoint();
                 _grapplePoint = GrapplePointMesh.Instantiate<MeshInstance3D>();
+                _grappleLine = GrappleLineMesh.Instantiate<MeshInstance3D>();
+
                 GetTree().Root.AddChild(_grapplePoint);
-                _grapplePoint.GlobalPosition = loc;
+                GetTree().Root.AddChild(_grappleLine);
+
+                _grapplePoint.GlobalPosition = _grappleLoc;
+
+
             }
 
             _inputRequest = InputRequest.None;
@@ -123,6 +133,8 @@ public partial class Grapple : Node3D
             {
                 _grapplePoint.QueueFree();
                 _grapplePoint = null;
+                _grappleLine.QueueFree();
+                _grappleLine = null;
 
             }
             _inputRequest = InputRequest.None;
@@ -176,5 +188,14 @@ public partial class Grapple : Node3D
 
             // _grappleRequest = false;
         }
+    }
+
+    private void UpdateGrappleLength()
+    {
+        if(_grappleLine == null) return;
+        var midPoint = GlobalPosition.Lerp(_grappleLoc, 0.5f);
+        _grappleLine.GlobalPosition = midPoint;
+        _grappleLine.LookAt(_grappleLoc);
+        _grappleLine.Scale = new Vector3(_grappleLine.Scale.X, _grappleLine.Scale.Y, GlobalPosition.DistanceTo(_grappleLoc));
     }
 }

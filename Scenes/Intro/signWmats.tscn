@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg3d2n8x2wnon"]
+
+[ext_resource type="PackedScene" uid="uid://dxj5760gtgs1i" path="res://Scenes/Intro/Sign.blend" id="1_eyf1q"]
+[ext_resource type="Texture2D" uid="uid://d2ffyykpe7iu6" path="res://Scenes/Intro/SignMat.png" id="2_4hrg4"]
+[ext_resource type="Material" uid="uid://cae5sshgnmml3" path="res://Materials/Metal/Metal.tres" id="2_jip2x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wm7r2"]
+albedo_texture = ExtResource("2_4hrg4")
+
+[node name="Sign" instance=ExtResource("1_eyf1q")]
+
+[node name="Sign" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wm7r2")
+
+[node name="Arrow" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_jip2x")

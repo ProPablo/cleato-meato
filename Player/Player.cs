@@ -18,16 +18,25 @@ public partial class Player : CharacterBody3D
     private Vector3 _desiredUnitDir = Vector3.Zero;
     private bool _jumpRequested = false;
 
+    private AnimationTree animTree;
+
+
     public override void _EnterTree()
     {
         base._EnterTree();
         Master = GetNode<PlayerMaster>("PlayerMaster");
+
     }
 
     public override void _Ready()
     {
         _cameraPivot = GetNode<Node3D>("Pivot");
+        animTree = GetNode<AnimationTree>("Playermodel/AnimationTree");
+
+
+        
         Input.MouseMode = Input.MouseModeEnum.Captured;
+
     }
 
     public override void _Process(double delta)
@@ -43,6 +52,7 @@ public partial class Player : CharacterBody3D
     public override void _PhysicsProcess(double delta)
     {
         Movement(delta);
+        SetAnimation();
     }
 
     ///<summary>
@@ -126,4 +136,14 @@ public partial class Player : CharacterBody3D
         MoveAndSlide();
     }
 
+
+    private void SetAnimation()
+    {
+        Vector2 inputDir = Input.GetVector("moveLeft", "moveRight", "moveForward", "moveBackward");
+        animTree.Set("parameters/conditions/InAir", !IsOnFloor());
+        animTree.Set("parameters/conditions/OnGround", IsOnFloor());
+        animTree.Set("parameters/IWR/blend_position", inputDir);
+        GD.Print(inputDir);
+
+    }
 }

@@ -25,6 +25,7 @@ public partial class IntroAnimation : AnimationPlayer
         if (oldName == "Decend")
         {
             GameManager._.IsInHub = true;
+            GameManager._.IsInIntro = false;
             GetTree().ChangeSceneToFile("res://Scenes/Hub/hub.tscn");
 
         }

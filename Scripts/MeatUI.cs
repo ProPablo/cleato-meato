@@ -19,7 +19,8 @@ public partial class MeatUI : Singleton<MeatUI>
 
     public override void _Process(double delta)
     {
-        if (!GameManager._.IsInHub)
+		
+        if (!GameManager._.IsInHub && !GameManager._.IsInIntro)
         {
             _vbox.Visible = true;
             _timeLabel.Visible = true;

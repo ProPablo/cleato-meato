@@ -59,6 +59,7 @@ public partial class Player : CharacterBody3D
         // Remap the dot product to a value from 0 to 1 (has to be normalized to be a value from -1 to 1)
         var targetDot = (target.Normalized().Dot(currentVel.Normalized()) + 1) / 2;
 
+        // This actually does nothing lol, use the turnaround curve instead, also the air acceleration should be lower than regular acceleration
         // TODO: cache Velocity length to reuse in normalizing
         var airControl = IsOnFloor() ? 1.0f : Mathf.Lerp(1.0f, AirControl, 1.0f - targetDot);
 

@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/GameManager.cs"
 CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
+Dialog="*res://Prefabs/Dialog.tscn"
 
 [display]
 

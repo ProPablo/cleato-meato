@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_d0gx7"]
 script = ExtResource("4_mmm4l")
-Lines = Array[String](["You think to yourself: ", "\"Ok well I might be fucked\"", "TThe meat walls start collapsing around you and you suffocate to death"])
+Lines = Array[String](["You think to yourself: ", "\"Ok well I might be fucked\"", "The meat walls start collapsing around you and you suffocate to death"])
 
 [resource]
 script = ExtResource("1_3at1r")

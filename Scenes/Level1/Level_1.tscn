@@ -652,6 +652,7 @@ environment = ExtResource("5_hg6iq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.562906, -0.55993, 0.60796, 0, 0.735565, 0.677454, -0.826521, -0.381343, 0.414054, 0, 0, 0)
+visible = false
 light_energy = 3.097
 
 [node name="Level1Geometry" parent="." instance=ExtResource("6_cwc0l")]

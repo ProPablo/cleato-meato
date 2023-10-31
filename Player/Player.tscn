@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://n5jdmaatiswb"]
+[gd_scene load_steps=17 format=3 uid="uid://n5jdmaatiswb"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_5na24"]
 [ext_resource type="Script" path="res://Player/PlayerMaster.cs" id="2_xu3e0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Player/MeleeSystem.cs" id="6_7jwlm"]
 [ext_resource type="Shape3D" uid="uid://clhkj8sqovpi8" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
 [ext_resource type="PackedScene" uid="uid://c4g353hu3u0uy" path="res://Prefabs/GrappleHook.tscn" id="6_g12vs"]
+[ext_resource type="PackedScene" uid="uid://buwi8dkyqtje" path="res://Prefabs/GrappleLine.tscn" id="7_kvl1a"]
 [ext_resource type="Script" path="res://Player/Grapple.cs" id="9_7qva1"]
 [ext_resource type="PackedScene" uid="uid://hmdqmj7647gc" path="res://Player/Model/Body/playermodel.tscn" id="11_n1ccd"]
 
@@ -52,6 +53,7 @@ script = ExtResource("3_6wfdx")
 [node name="Grapple" type="Node3D" parent="Pivot"]
 script = ExtResource("9_7qva1")
 GrapplePointMesh = ExtResource("6_g12vs")
+GrappleLineMesh = ExtResource("7_kvl1a")
 GrappleSpeed = 50.0
 GrappleAcceleration = 92.735
 
@@ -105,9 +107,9 @@ doppler_tracking = 2
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.997801, 0.0662739, 0, -0.0662739, 0.997801, 0, 1.065, 0)
-light_energy = 16.0
+light_energy = 5.0
 shadow_enabled = true
-spot_range = 135.353
+spot_range = 97.1371
 spot_angle = 56.477
 
 [node name="CameraPositionRay" type="RayCast3D" parent="Pivot"]

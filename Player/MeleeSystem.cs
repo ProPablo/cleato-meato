@@ -88,6 +88,7 @@ public partial class MeleeSystem : Area3D
         }
         else if (body.HasLayer(BackDoorLayer))
         {
+            GD.Print("Checking win con");
             GameManager._.CheckWinCondition();
         }
         else

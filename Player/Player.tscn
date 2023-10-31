@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Player/MeleeSystem.cs" id="6_7jwlm"]
 [ext_resource type="Shape3D" uid="uid://clhkj8sqovpi8" path="res://Player/MeleeHitbox.tres" id="6_8gec2"]
 [ext_resource type="PackedScene" uid="uid://c4g353hu3u0uy" path="res://Prefabs/GrappleHook.tscn" id="6_g12vs"]
-[ext_resource type="PackedScene" uid="uid://buwi8dkyqtje" path="res://Prefabs/GrappleLine.tscn" id="7_kvl1a"]
+[ext_resource type="PackedScene" path="res://Prefabs/GrappleLine.tscn" id="7_kvl1a"]
 [ext_resource type="Script" path="res://Player/Grapple.cs" id="9_7qva1"]
 [ext_resource type="PackedScene" uid="uid://hmdqmj7647gc" path="res://Player/Model/Body/playermodel.tscn" id="11_n1ccd"]
 
@@ -79,6 +79,7 @@ host = NodePath("../..")
 Tier1MeatLayer = 4
 Tier2MeatLayer = 8
 DialogueLayer = 16
+BackDoorLayer = 32
 bloodHit = ExtResource("6_2grk1")
 
 [node name="MeleeHitbox" type="CollisionShape3D" parent="Pivot/Melee"]

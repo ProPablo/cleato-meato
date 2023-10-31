@@ -47,7 +47,7 @@ public partial class DialogManager : Singleton<DialogManager>
     {
         if (_currentDialog != null)
         {
-            if (Input.IsActionJustPressed("ui_accept") || Input.IsActionJustPressed("attack"))
+            if (Input.IsActionJustPressed("attack"))
             {
                 if (_dialogLabel.VisibleCharacters < _dialogLabel.Text.Length - 1)
                 {

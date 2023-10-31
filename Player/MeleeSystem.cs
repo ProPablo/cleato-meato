@@ -1,5 +1,6 @@
 using Cleato;
 using Godot;
+using KongrooTools;
 using System;
 using System.Diagnostics;
 using System.Net.Http.Headers;
@@ -21,6 +22,9 @@ public partial class MeleeSystem : Area3D
     [Export(PropertyHint.Layers3DPhysics)] public uint Tier1MeatLayer;
     [Export(PropertyHint.Layers3DPhysics)] public uint Tier2MeatLayer;
     [Export(PropertyHint.Layers3DPhysics)] public uint DialogueLayer;
+
+    // TODO: Architect this better (Use some kind of dialog script interaction)
+    [Export(PropertyHint.Layers3DPhysics)] public uint BackDoorLayer;
 
     [Export]
     private PackedScene bloodHit;
@@ -53,22 +57,22 @@ public partial class MeleeSystem : Area3D
     // This is actually OnAreaEnter
     public void OnCollision(Area3D body)
     {
-        bool spawnBlood = true;
-        uint layerandMeat1 = body.CollisionLayer & Tier1MeatLayer;
-        uint layerandMeat2 = body.CollisionLayer & Tier2MeatLayer;
-        uint layerandDiag = body.CollisionLayer & DialogueLayer;
-        if (Convert.ToBoolean(layerandMeat1))
+        bool spawnBlood = false;
+        if (body.HasLayer(Tier1MeatLayer))
         {
+            spawnBlood = true;
             GD.Print("Tier 1 meat hit");
+            GameManager._.CurrentMeat.Tier1++;
         }
-        else if (Convert.ToBoolean(layerandMeat2))
+        else if (body.HasLayer(Tier2MeatLayer))
         {
+            spawnBlood = true;
             GD.Print("Tier 2 meat hit");
+            GameManager._.CurrentMeat.Tier2++;
         }
-        else if (Convert.ToBoolean(layerandDiag))
+        else if (body.HasLayer(DialogueLayer))
         {
             GD.Print("Dialogue hit");
-            spawnBlood = false;
             //Launch the Dialog system for the current day
             var dialog = GameManager._.CurrentDayRes.Dialog;
             if (!DialogManager._.IsInDialog)
@@ -78,15 +82,16 @@ public partial class MeleeSystem : Area3D
                 DialogManager._.DialogEnded += () =>
                 {
                     GD.Print("Dialog Finished");
-                    var nextLevel = GameManager._.CurrentDayRes.LevelScene;
-                    GameManager._.GotoScene(nextLevel);
+                    GameManager._.GoToNextLevel();
                 };
             }
-
+        }
+        else if (body.HasLayer(BackDoorLayer))
+        {
+            GameManager._.CheckWinCondition();
         }
         else
         {
-            spawnBlood = false;
             GD.Print("Hit layer: " + body.CollisionLayer);
         }
 
@@ -103,6 +108,7 @@ public partial class MeleeSystem : Area3D
             hit.Rotate(Vector3.Forward, (float)GD.RandRange(-Mathf.Pi / 4, Mathf.Pi / 4));
 
         }
+
     }
 
 

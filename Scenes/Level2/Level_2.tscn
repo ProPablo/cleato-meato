@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://l6chlbsn1dkw"]
+[gd_scene load_steps=8 format=3 uid="uid://l6chlbsn1dkw"]
 
 [ext_resource type="PackedScene" uid="uid://djttkafn5kubq" path="res://Scenes/Level2/level_2_geometry_with_Collision.tscn" id="1_cbugd"]
 [ext_resource type="PackedScene" uid="uid://n5jdmaatiswb" path="res://Player/Player.tscn" id="2_2xkp4"]
 [ext_resource type="PackedScene" uid="uid://dmorjpwjc6ays" path="res://Prefabs/FleshParts/FleshParts.blend" id="3_oofme"]
 [ext_resource type="PackedScene" uid="uid://d37ofsk1nbn18" path="res://Prefabs/FleshParts/ChoiceCut.tscn" id="4_fo2l7"]
+[ext_resource type="PackedScene" uid="uid://de2kmli3tcqtv" path="res://Prefabs/interactable_door.tscn" id="5_ullyp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ykr0"]
 size = Vector3(3.29785, 7.50335, 11.4515)
@@ -37,3 +38,6 @@ collision_layer = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FleshParts2/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15349, 0, 0)
 shape = SubResource("BoxShape3D_mb4ot")
+
+[node name="InteractableDoor" parent="." instance=ExtResource("5_ullyp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.9748, -1.19243, 1.47839)

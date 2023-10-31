@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://1g5hk35yfapa"]
+
+[ext_resource type="Script" path="res://Scripts/MeatUI.cs" id="1_dxh3r"]
+[ext_resource type="Theme" uid="uid://btp2soicp8fd6" path="res://Materials/MeatDisplay_theme.tres" id="1_wtfep"]
+
+[node name="MeatUI" type="Node"]
+script = ExtResource("1_dxh3r")
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -386.0
+offset_top = 31.0
+offset_right = -26.0
+offset_bottom = 122.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_wtfep")
+text = "Time: 0.1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 17.0
+offset_top = 26.0
+offset_right = 377.0
+offset_bottom = 212.0
+mouse_filter = 2
+
+[node name="T1Meat" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wtfep")
+text = "Grey : 12"
+
+[node name="T2Meat" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wtfep")
+text = "Sup man"

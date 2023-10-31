@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://de2kmli3tcqtv"]
+
+[ext_resource type="PackedScene" uid="uid://wfqut6oxs8r" path="res://Prefabs/Props/HeavyDoor/HeavyDoor.blend" id="1_fv6ti"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h6wxp"]
+size = Vector3(2.34075, 4.46648, 1)
+
+[node name="InteractableDoor" type="Area3D"]
+collision_layer = 32
+
+[node name="HeavyDoor" parent="." instance=ExtResource("1_fv6ti")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2.08238, -1.0603)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_h6wxp")

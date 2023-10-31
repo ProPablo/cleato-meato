@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="DayRes" load_steps=4 format=3 uid="uid://cv1fq5ug3gwes"]
+[gd_resource type="Resource" script_class="DayRes" load_steps=6 format=3 uid="uid://cv1fq5ug3gwes"]
 
 [ext_resource type="Resource" uid="uid://dniwyfmpamh1i" path="res://Scenes/Day1/Intro_dialog.tres" id="1_1aqsl"]
 [ext_resource type="Script" path="res://Scripts/DayRes.cs" id="1_et4oj"]
 [ext_resource type="PackedScene" uid="uid://5r3yskdff8mt" path="res://Scenes/Level1/Level_1.tscn" id="2_w8asr"]
+[ext_resource type="Script" path="res://Scripts/MeatRes.cs" id="3_k3i4b"]
+
+[sub_resource type="Resource" id="Resource_x1h0l"]
+script = ExtResource("3_k3i4b")
+Tier1 = 5
+Tier2 = 0
 
 [resource]
 script = ExtResource("1_et4oj")
 Dialog = ExtResource("1_1aqsl")
 LevelScene = ExtResource("2_w8asr")
+MeatRequirements = SubResource("Resource_x1h0l")
+MaxTime = 900.0

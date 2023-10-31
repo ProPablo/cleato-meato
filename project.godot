@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="cleato_meato"
-run/main_scene="res://Scenes/mobility_scene.tscn"
+run/main_scene="res://Scenes/Hub/hub.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 run/max_fps=120
 config/icon="res://icon.svg"
@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/GameManager.cs"
 CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 Dialog="*res://Prefabs/Dialog.tscn"
+MeatUi="*res://Prefabs/MeatUI.tscn"
 
 [display]
 
@@ -80,6 +81,7 @@ grapple={
 3d_physics/layer_3="T1Meat"
 3d_physics/layer_4="T2Meat"
 3d_physics/layer_5="Dialogue"
+3d_physics/layer_6="BackDoor"
 
 [physics]
 

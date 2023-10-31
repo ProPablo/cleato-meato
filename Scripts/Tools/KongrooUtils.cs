@@ -2,11 +2,16 @@ using Godot;
 
 namespace KongrooTools
 {
-    public class Utils
+    public static class Utils
     {
         // https://victorkarp.com/godot-engine-how-to-remap-a-range-of-numbers/
         public static float Remap(float value, float inMin, float inMax, float outMin, float outMax) =>
         outMin + ((value - inMin) / (inMax - inMin) * (outMax - outMin));
+
+        public static bool HasLayer(this CollisionObject3D obj, uint layer)
+        {
+            return (obj.CollisionLayer & (int)layer) != 0;
+        }
     }
 
     public struct Ray
@@ -25,4 +30,5 @@ namespace KongrooTools
         }
 
     }
+
 }

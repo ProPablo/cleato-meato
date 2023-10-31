@@ -67,13 +67,14 @@ skeleton = NodePath("../../CollisionShape3D")
 [node name="Melee" type="Area3D" parent="Pivot" node_paths=PackedStringArray("host")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.687393, 0)
 collision_layer = 2
-collision_mask = 29
+collision_mask = 61
 input_ray_pickable = false
 script = ExtResource("6_7jwlm")
 host = NodePath("../..")
 Tier1MeatLayer = 4
 Tier2MeatLayer = 8
 DialogueLayer = 16
+BackDoorLayer = 32
 bloodHit = ExtResource("6_2grk1")
 
 [node name="MeleeHitbox" type="CollisionShape3D" parent="Pivot/Melee"]

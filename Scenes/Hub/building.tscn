@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4gtvuovk7hiq"]
+
+[ext_resource type="PackedScene" uid="uid://cs72212q7s0sv" path="res://Scenes/Hub/Building.blend" id="1_jdubt"]
+[ext_resource type="Texture2D" uid="uid://buh4o7ko36a6g" path="res://Scenes/Hub/BuildingMat.png" id="2_alfvb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11kqx"]
+albedo_texture = ExtResource("2_alfvb")
+
+[node name="Building" instance=ExtResource("1_jdubt")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_11kqx")

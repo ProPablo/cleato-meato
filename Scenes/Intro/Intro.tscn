@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://jjhhxsb56yoi"]
+[gd_scene load_steps=18 format=3 uid="uid://jjhhxsb56yoi"]
 
 [ext_resource type="Script" path="res://Scripts/SkyboxColour.cs" id="1_cwa74"]
 [ext_resource type="Script" path="res://Scripts/IntroAnimation.cs" id="1_dr3ni"]
 [ext_resource type="Material" uid="uid://cl74y7rkr41tk" path="res://Materials/GeneralFlesh/Flesh.tres" id="1_kknau"]
-[ext_resource type="PackedScene" uid="uid://dxj5760gtgs1i" path="res://Scenes/Intro/Sign.blend" id="4_k72po"]
-[ext_resource type="PackedScene" uid="uid://cs72212q7s0sv" path="res://Scenes/Hub/Building.blend" id="5_kaby6"]
+[ext_resource type="PackedScene" uid="uid://cg3d2n8x2wnon" path="res://Scenes/Intro/signWmats.tscn" id="2_aifm6"]
+[ext_resource type="FontFile" uid="uid://3l63j45qspmi" path="res://External_Assets/Chandler42 Regular.otf" id="2_w0bux"]
+[ext_resource type="PackedScene" uid="uid://d4gtvuovk7hiq" path="res://Scenes/Hub/building.tscn" id="6_psjcu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qp2tv"]
 emission_enabled = true
@@ -454,17 +455,20 @@ skeleton = NodePath("../FarPlanet")
 transform = Transform3D(-1, 0, -8.74229e-08, 0, 1, 0, 8.74229e-08, 0, -1, 9.00153, 49.1889, -192.742)
 pixel_size = 0.125
 text = "Cleato Meato's"
+font = ExtResource("2_w0bux")
+font_size = 30
 horizontal_alignment = 2
 
 [node name="Label3D2" type="Label3D" parent="ClosePlanet"]
 transform = Transform3D(-1, 0, -8.74229e-08, 0, 1, 0, 8.74229e-08, 0, -1, 13.8911, 45.3934, -192.742)
 pixel_size = 0.125
 text = "Flesh Emporium"
+font = ExtResource("2_w0bux")
 font_size = 22
 horizontal_alignment = 2
 
-[node name="Sign" parent="ClosePlanet" instance=ExtResource("4_k72po")]
-transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, 24.8748, 0.287535, -188.494)
+[node name="Sign" parent="ClosePlanet" instance=ExtResource("2_aifm6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.8748, 0.287535, -188.494)
 
 [node name="SpaceCamPivot" type="Node3D" parent="."]
 
@@ -488,7 +492,7 @@ script = ExtResource("1_cwa74")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.689508, -0.422529, -0.588258, 0.218204, -0.653279, 0.724992, -0.690627, -0.628249, -0.358243, 41.8979, 0, 0)
 
-[node name="Building" parent="." instance=ExtResource("5_kaby6")]
+[node name="Building2" parent="." instance=ExtResource("6_psjcu")]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -3.44991, -8.49837, 352.329)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="ChangeAnimation"]

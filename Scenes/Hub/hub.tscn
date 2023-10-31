@@ -178,7 +178,6 @@ block_data = SubResource("Resource_to3xo")
 
 [node name="Player" parent="." instance=ExtResource("4_jwrwv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16915, 0)
-JumpImpulse = 10.0
 Acceleration = 30.0
 
 [node name="Lighting" type="Node3D" parent="."]

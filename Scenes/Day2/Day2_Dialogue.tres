@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DialogRes" load_steps=2 format=3 uid="uid://cqxof0vrrftoq"]
+
+[ext_resource type="Script" path="res://Scripts/DialogRes.cs" id="1_vbatq"]
+
+[resource]
+script = ExtResource("1_vbatq")
+Lines = Array[String](["Ok good job yesterday", "When I was moving around your air tank last night I mighta bumped it", "I patched it up real quick with hyper-duct tape and it's as good as new", "Anyway today we got some actual customers and I need 25 slices of greycon and 10 slices of choice cut", "You'll know what that looks like when you see it", "Anyway get going", "chop chop"])

@@ -19,7 +19,7 @@ size = Vector3(1.77468, 7.43294, 11.2081)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.2154, -1.08333, 0)
 
 [node name="FleshParts" parent="." instance=ExtResource("3_oofme")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.4803, 23.9849, -68.72)
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0909976, 0.995851, -3.97763e-09, -0.995851, -0.0909976, -4.353e-08, 17.4803, 23.9849, -69.4334)
 
 [node name="Area3D" type="Area3D" parent="FleshParts"]
 collision_layer = 4
@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04477, 0, -3.8147e-06)
 shape = SubResource("BoxShape3D_1ykr0")
 
 [node name="FleshParts2" parent="." instance=ExtResource("4_fo2l7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 86.3518, 20.0293, -24.9748)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 86.3518, 20.0293, -25.3216)
 
 [node name="Area3D" type="Area3D" parent="FleshParts2"]
 collision_layer = 8
